@@ -5,16 +5,38 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform spawnLocation;
+    public GameObject enemyInstance;
+    public float timeBtwnEachGoon = 1f;
 
-    // Start is called before the first frame update
+    public bool spawning = false;
+    public bool canSpawn = false;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (canSpawn && !spawning) StartSpawning();
+    }
+
+    public void DeployTheGoons()
+    {
+        Instantiate(enemyInstance, spawnLocation.position, Quaternion.identity);
+    }
+
+    public void StartSpawning()
+    {
+        spawning = true;
+        StartCoroutine("Spawning");
+    }
+
+    public IEnumerator Spawning()
+    {
+        DeployTheGoons();
+        yield return new WaitForSeconds(timeBtwnEachGoon);
+
+        if (canSpawn) StartCoroutine("Spawning");
     }
 }
