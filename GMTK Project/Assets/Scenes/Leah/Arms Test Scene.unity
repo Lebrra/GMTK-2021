@@ -268,7 +268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 80e48b77736fcc24baecfb413168cac3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -363,7 +363,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d01cffe9c30531049bf627636ff392d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -442,8 +442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  sprintSpeed: 7
-  sprinting: 0
   blendValue: 0.1
 --- !u!114 &1363129192
 MonoBehaviour:
@@ -507,7 +505,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f5ce8e546272d1a4abbf2dae513fc4a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -666,19 +664,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc1ab57159ed1b40a5159767e36111b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeg: 0
   isTurret: 1
+  health: 0
+  isBroken: 0
   shootPosition: {fileID: 2076667279}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  damage: 1
+  damage: 0
   range: 4.64
   projectileRange: 5.01
   cooldown: 1.3
   spreadCount: 7
   canPierce: 0
-  attacking: 0
-  EnemiesList: []
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  TargetList: []
   activeTarget: {fileID: 0}
 --- !u!136 &2076667276
 CapsuleCollider:
@@ -713,7 +713,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1dc5ed28b2538d3439039836bfe5afe9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

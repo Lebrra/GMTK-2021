@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 1;
-    public float sprintSpeed = 2;
-    public bool sprinting = false;
     public float blendValue = 0.1F;
 
     public void Move(Rigidbody rb, Animator anim, Transform myBody)
@@ -22,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
         if (generalVelocity > blendValue / 2F)
         {
             float finalSpd = speed;
-            if (sprinting) finalSpd = sprintSpeed;
             if (generalVelocity > 1) finalSpd = finalSpd * 0.7F;    // nerf diagonal running
 
             Vector3 finalVel = new Vector3(forward.x * finalSpd, rb.velocity.y, forward.z * finalSpd) * moveInput.y + new Vector3(right.x * finalSpd, 0, right.z * finalSpd) * moveInput.x;
