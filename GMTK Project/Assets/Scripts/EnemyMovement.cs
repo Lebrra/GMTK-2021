@@ -121,4 +121,10 @@ public class EnemyMovement : MonoBehaviour
         Gizmos.color = Color.blue;
         //Gizmos.DrawWireSphere(transform.position, sightRange);
     }
+
+    public void Attack()
+    {
+        print(gameObject.name + " attacked!");
+        target.gameObject.GetComponent<RobotAttack>().
+    }
 }
