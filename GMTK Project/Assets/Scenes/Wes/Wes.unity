@@ -317,7 +317,7 @@ Transform:
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &490246814
 GameObject:
@@ -357,6 +357,7 @@ MonoBehaviour:
   roundState: 0
   spawning: 0
   timeBtwnReinforcments: 10
+  timeBtwnRounds: 20
 --- !u!4 &490246816
 Transform:
   m_ObjectHideFlags: 0
@@ -369,7 +370,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &590220905
 GameObject:
@@ -483,7 +484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &643886050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -577,8 +578,8 @@ MonoBehaviour:
   myLimbPrefabLeft: {fileID: 0}
   myLimbPrefabRight: {fileID: 0}
   myTurretPrefab: {fileID: 0}
-  health: 99999999
-  maxHealth: 0
+  health: 10
+  maxHealth: 10
   isBroken: 0
   isDead: 0
   shootPosition: {fileID: 643886053}
@@ -782,7 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cb375835da73c418cda7ffabb563a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1000
   gameState: 1
   gameOverPanel: {fileID: 1881773642}
 --- !u!135 &1432138213
@@ -1201,7 +1202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608814, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608814, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1262,7 +1263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4451420230748384724, guid: 69f8bd57c5455c149acf257f95cd28eb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4451420230748384724, guid: 69f8bd57c5455c149acf257f95cd28eb, type: 3}
       propertyPath: m_LocalPosition.x

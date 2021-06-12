@@ -99,12 +99,18 @@ public class EnemyMovement : MonoBehaviour
 
     public IEnumerator FindTargets(float delay)
     {
+        yield return new WaitForSeconds(delay);
+        if (!targetMet)
+            FindVisableTargets();
+
+        /*
         while (true)
         {
             yield return new WaitForSeconds(delay);
             if (!targetMet)
                 FindVisableTargets();
         }
+        */
     }
 
     public void FindVisableTargets()
@@ -118,7 +124,7 @@ public class EnemyMovement : MonoBehaviour
             if (thingsInSight.Contains(t))
             {
                 //Check if target is dead/inactive
-                if (t.GetComponent<RobotAttack>() && t.GetComponent<RobotAttack>().isDead)
+                if (t.GetComponent<RobotAttack>() && t.GetComponent<RobotAttack>().isDead || !t.gameObject.activeInHierarchy)
                 {
                     thingsInSight.Remove(t);
                     SetTarget();

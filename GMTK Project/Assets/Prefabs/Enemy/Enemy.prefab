@@ -167,10 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cad0a2736c6db4aa9e5ce93178537b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   canMove: 0
   moveSpeed: 4
   attackRange: 1.2
-  damage: 10
+  damage: 1
   attackCooldown: 1
   sightLayer:
     serializedVersion: 2
