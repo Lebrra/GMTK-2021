@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 643886052}
   - component: {fileID: 643886051}
   - component: {fileID: 643886050}
+  - component: {fileID: 643886054}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -407,6 +408,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &643886054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643886049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc1ab57159ed1b40a5159767e36111b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLeg: 0
+  isTurret: 1
+  health: 100
+  isBroken: 0
+  shootPosition: {fileID: 643886053}
+  damage: 0
+  range: 0
+  projectileRange: 0
+  cooldown: 0
+  spreadCount: 1
+  canPierce: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  TargetList: []
+  activeTarget: {fileID: 0}
 --- !u!1 &848435720
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +576,8 @@ MonoBehaviour:
   target: {fileID: 0}
   canMove: 0
   attackRange: 1.2
+  damage: 10
+  attackCooldown: 1
   moveSpeed: 4
   sightLayer:
     serializedVersion: 2

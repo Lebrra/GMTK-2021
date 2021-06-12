@@ -10,11 +10,13 @@ public class EnemyMovement : MonoBehaviour
     NavMeshObstacle myObstacle;
     Vector3 destination;
     bool targetMet = false;
+    bool attacking = false;
 
     public Transform target;
     public bool canMove;
     public float attackRange;
-    //public float sightRange;
+    public int damage = 10;
+    public float attackCooldown;
     public float moveSpeed = 2.0f;
     public LayerMask sightLayer;
     public List<Transform> thingsInSight = new List<Transform>();
@@ -43,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 agent.enabled = false;
                 myObstacle.enabled = true;
+                Attack();
             }
             else if (!targetMet)
             {
@@ -111,6 +114,22 @@ public class EnemyMovement : MonoBehaviour
             target = thingsInSight[0];
     }
 
+    public void Attack()
+    {
+        if (attacking) return;
+
+        target.GetComponent<RobotAttack>().TakeDamage(damage);
+        attacking = true;
+
+        StartCoroutine(ResetAttack());
+    }
+
+    protected IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        attacking = false;
+    }
+
     private void OnDrawGizmos()
     {
         //Attack range
@@ -120,11 +139,5 @@ public class EnemyMovement : MonoBehaviour
         //Sight range
         Gizmos.color = Color.blue;
         //Gizmos.DrawWireSphere(transform.position, sightRange);
-    }
-
-    public void Attack()
-    {
-        print(gameObject.name + " attacked!");
-        target.gameObject.GetComponent<RobotAttack>().
     }
 }
