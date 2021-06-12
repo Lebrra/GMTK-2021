@@ -17,7 +17,7 @@ public class PlayerLimbFinder : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
+        //Debug.Log(other.gameObject);
         if (other.GetComponent<RobotAttack>() && !nearbyLimbs.Contains(other.GetComponent<RobotAttack>()))
         {
             nearbyLimbs.Add(other.GetComponent<RobotAttack>());

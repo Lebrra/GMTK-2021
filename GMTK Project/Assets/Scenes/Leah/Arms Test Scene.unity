@@ -303,6 +303,7 @@ MonoBehaviour:
   isBroken: 0
   isDead: 0
   shootPosition: {fileID: 64657391}
+  rotatePoint: {fileID: 0}
   damage: 5
   range: 1.67
   projectileRange: 1.78
@@ -512,7 +513,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &554887419 stripped
 GameObject:
@@ -524,14 +525,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3940914587736144096, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
   m_PrefabInstance: {fileID: 1333889326}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &770063766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8402464703992127478, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
+  m_PrefabInstance: {fileID: 879956985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &837422867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6302007431990600496, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
-  m_PrefabInstance: {fileID: 879956985}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &837422868 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4168241277417738558, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
   m_PrefabInstance: {fileID: 879956985}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &837422871
@@ -550,12 +551,13 @@ MonoBehaviour:
   isTurret: 0
   myLimbPrefabLeft: {fileID: 4013277151911588731, guid: 6a4faa60173c6f04694ebff03403e05f, type: 3}
   myLimbPrefabRight: {fileID: 3627497717003680133, guid: 325005c92465cac40a677bf34e1adac2, type: 3}
-  myTurretPrefab: {fileID: 5097125182811065488, guid: 1af08ae1dd772db4bac09bf5ce1cf988, type: 3}
+  myTurretPrefab: {fileID: 3297860511207844137, guid: bd2fef18ef1166f469cdc531f2a8ed43, type: 3}
   health: 50
   maxHealth: 50
   isBroken: 0
   isDead: 0
-  shootPosition: {fileID: 837422868}
+  shootPosition: {fileID: 1828061936}
+  rotatePoint: {fileID: 0}
   damage: 5
   range: 1.67
   projectileRange: 1.78
@@ -1296,11 +1298,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1128726369215368538, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
   m_PrefabInstance: {fileID: 879956985}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1492523627 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6148766501173341467, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
-  m_PrefabInstance: {fileID: 879956985}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1492523630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1317,12 +1314,13 @@ MonoBehaviour:
   isTurret: 0
   myLimbPrefabLeft: {fileID: 4013277151911588731, guid: 6a4faa60173c6f04694ebff03403e05f, type: 3}
   myLimbPrefabRight: {fileID: 3627497717003680133, guid: 325005c92465cac40a677bf34e1adac2, type: 3}
-  myTurretPrefab: {fileID: 5097125182811065488, guid: 1af08ae1dd772db4bac09bf5ce1cf988, type: 3}
+  myTurretPrefab: {fileID: 3297860511207844137, guid: bd2fef18ef1166f469cdc531f2a8ed43, type: 3}
   health: 50
   maxHealth: 50
   isBroken: 0
   isDead: 0
-  shootPosition: {fileID: 1492523627}
+  shootPosition: {fileID: 770063766}
+  rotatePoint: {fileID: 0}
   damage: 5
   range: 1.67
   projectileRange: 1.78
@@ -1366,6 +1364,11 @@ Transform:
   m_Father: {fileID: 1051390389}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1828061936 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2472867992465126435, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
+  m_PrefabInstance: {fileID: 879956985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1832216090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1581,7 @@ MonoBehaviour:
   isBroken: 0
   isDead: 0
   shootPosition: {fileID: 1994340753}
+  rotatePoint: {fileID: 0}
   damage: 10
   range: 1.74
   projectileRange: 1.96
@@ -1612,7 +1616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5097125182811065493, guid: 1af08ae1dd772db4bac09bf5ce1cf988, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5097125182811065493, guid: 1af08ae1dd772db4bac09bf5ce1cf988, type: 3}
       propertyPath: m_LocalPosition.x
