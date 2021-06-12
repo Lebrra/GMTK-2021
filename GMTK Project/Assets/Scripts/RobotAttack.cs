@@ -14,6 +14,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     int maxHealth;
 
     public bool isBroken = false;
+    public bool isDead = false;
 
     [Header("Weapon Properties")]
     [Tooltip("Defaults to its own position")]
@@ -182,6 +183,7 @@ public class RobotAttack : MonoBehaviour, IHealth
             }
             else
             {
+                isDead = true;
                 Debug.LogWarning("TURRET DIED");
             }
         }

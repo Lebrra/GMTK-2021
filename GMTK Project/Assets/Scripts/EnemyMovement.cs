@@ -49,7 +49,14 @@ public class EnemyMovement : MonoBehaviour
             {
                 agent.enabled = false;
                 myObstacle.enabled = true;
-                Attack();
+                if (target.GetComponent<RobotAttack>() && !target.GetComponent<RobotAttack>().isDead)
+                {
+                    Attack();
+                }
+                else if (target.GetComponent<HubReference>())
+                {
+                    Attack();
+                }
             }
             else if (!targetMet)
             {
@@ -90,6 +97,14 @@ public class EnemyMovement : MonoBehaviour
             if (thingsInSight.Contains(t))
             {
                 //Check if target is dead/inactive
+                if (t.GetComponent<RobotAttack>())
+                {
+                    if (t.GetComponent<RobotAttack>().isDead)
+                    {
+                        thingsInSight.Remove(t);
+                        SetTarget();
+                    }
+                }
                 continue;
             }
 
@@ -122,7 +137,14 @@ public class EnemyMovement : MonoBehaviour
     {
         if (attacking) return;
 
-        target.GetComponent<RobotAttack>().TakeDamage(damage);
+        //Attacking for towers
+        if(target.GetComponent<RobotAttack>())
+            target.GetComponent<RobotAttack>().TakeDamage(damage);
+
+        //Attacking for hub
+        else if(target.GetComponent<HubReference>())
+            target.GetComponent<HubReference>().TakeDamage(damage);
+
         attacking = true;
 
         StartCoroutine(ResetAttack());
