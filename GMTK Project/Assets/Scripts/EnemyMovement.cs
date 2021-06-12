@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     public Transform target;
     public bool canMove;
     public float attackRange;
-    public float sightRange;
+    //public float sightRange;
     public float moveSpeed = 2.0f;
     public LayerMask sightLayer;
     public List<Transform> thingsInSight = new List<Transform>();
@@ -74,7 +74,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void FindVisableTargets()
     {
-        Collider[] targetsInRange = Physics.OverlapSphere(transform.position, sightRange, sightLayer);
+        Collider[] targetsInRange = Physics.OverlapSphere(transform.position, 999, sightLayer);
 
         for(int i = 0; i < targetsInRange.Length; i++)
         {
@@ -104,6 +104,7 @@ public class EnemyMovement : MonoBehaviour
         SetTarget();
     }
 
+    //Add the priority for who to target
     void SetTarget()
     {
         if (thingsInSight.Count > 0)
@@ -118,6 +119,6 @@ public class EnemyMovement : MonoBehaviour
 
         //Sight range
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        //Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }
