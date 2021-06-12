@@ -183,7 +183,7 @@ public class RobotAttack : MonoBehaviour, IHealth
             }
             else
             {
-                isDead = false;
+                isDead = true;
                 Debug.LogWarning("TURRET DIED");
             }
         }
