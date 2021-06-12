@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
         myObstacle = GetComponent<NavMeshObstacle>();
         destination = agent.destination;
         agent.speed = moveSpeed;
+        thingsInSight.Add(HubReference.reference.transform);
         StartCoroutine("FindTargets", 0.2f);
     }
 
