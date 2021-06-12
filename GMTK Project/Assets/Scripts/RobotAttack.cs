@@ -8,10 +8,11 @@ public class RobotAttack : MonoBehaviour, IHealth
     public bool isLeg = false;
     public bool isTurret = true;
 
+    public GameObject myTurretPrefab;
+
     [Header("Health")]
-    [SerializeField]
-    int health;
-    int maxHealth;
+    public int health;
+    public int maxHealth;
 
     public bool isBroken = false;
     public bool isDead = false;
@@ -32,7 +33,7 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     [Header("Targetting")]
     [SerializeField]
-    LayerMask targetLayer;
+    public LayerMask targetLayer;
     [SerializeField]
     List<Collider> TargetList;
     [SerializeField]
@@ -42,9 +43,8 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     private void Start()
     {
-        maxHealth = health;
-        TargetList = new List<Collider>();
-        StartCoroutine(FindEnemies());
+        //TargetList = new List<Collider>();
+        //StartCoroutine(FindEnemies());
     }
 
     private void Update()
@@ -54,6 +54,37 @@ public class RobotAttack : MonoBehaviour, IHealth
             if (isTurret) Attack();
             //else if (Input.GetKeyDown(KeyCode.Space)) Attack();
         }
+    }
+
+    public void SetTurret(int currentHealth, GameObject prefabRef)
+    {
+        health = currentHealth;
+        isTurret = true;
+        myTurretPrefab = prefabRef;
+
+        TargetList = new List<Collider>();
+        StartCoroutine(FindEnemies());
+    }
+
+    public void CopyTurretComponent(RobotAttack reference)
+    {
+        isTurret = false;
+
+        health = reference.health;
+        maxHealth = reference.maxHealth;
+        isLeg = reference.isLeg;
+        
+        damage = reference.damage;
+        range = reference.range;
+        projectileRange = reference.projectileRange;
+        cooldown = reference.cooldown;
+        spreadCount = reference.spreadCount;
+        canPierce = reference.canPierce;
+        isAOE = reference.isAOE;
+        targetLayer = reference.targetLayer;
+
+        TargetList = new List<Collider>();
+        StartCoroutine(FindEnemies());
     }
 
     public virtual void Attack()
