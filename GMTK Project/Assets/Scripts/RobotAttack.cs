@@ -22,6 +22,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     [Header("Weapon Properties")]
     [Tooltip("Defaults to its own position")]
     public Transform shootPosition;
+    public Transform rotatePoint;
 
     public int damage;
     public float range;
@@ -45,15 +46,15 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     private void Start()
     {
-        //TargetList = new List<Collider>();
-        //StartCoroutine(FindEnemies());
+        TargetList = new List<Collider>();
+        StartCoroutine(FindEnemies());
     }
 
     private void Update()
     {
         if (!attacking)
         {
-            if (isTurret) Attack();
+            /*if (isTurret)*/ Attack();
             //else if (Input.GetKeyDown(KeyCode.Space)) Attack();
         }
     }
@@ -126,12 +127,21 @@ public class RobotAttack : MonoBehaviour, IHealth
     {
         if (!activeTarget) return;
 
-        Vector3 direction = new Vector3(transform.position.x - activeTarget.transform.position.x, 0F, transform.position.z - activeTarget.transform.position.z);   // change this height later as needed
+        if (!rotatePoint) rotatePoint = transform;
+
+        Vector3 direction = new Vector3(transform.position.x - activeTarget.transform.position.x, rotatePoint.position.y - activeTarget.transform.position.y, transform.position.z - activeTarget.transform.position.z);   // change this height later as needed
         direction = Quaternion.Euler(0, angleOffset, 0) * direction;
+        direction = new Vector3(-direction.normalized.x, -0.05F, -direction.normalized.z);
+        //direction = new Vector3(-direction.normalized.x, -direction.normalized.y, -direction.normalized.z);
+
+        if (isTurret && rotatePoint != transform && angleOffset == 0)
+        {
+            rotatePoint.rotation = Quaternion.LookRotation(direction);
+        }
 
         //Debug.Log("shooting towards " + direction.normalized.ToString());
-        Debug.DrawRay(shootPosition.position, -direction.normalized * projectileRange, Color.red, 1F);
-        foreach (var rayHit in Physics.RaycastAll(shootPosition.position, -direction.normalized, projectileRange, targetLayer))
+        Debug.DrawRay(shootPosition.position, direction.normalized * projectileRange, Color.red, 1F);
+        foreach (var rayHit in Physics.RaycastAll(shootPosition.position, direction, projectileRange, targetLayer))
         {
             //Debug.Log("I have hit " + rayHit.collider.gameObject, gameObject);
             DoDamage(rayHit.collider.gameObject);
