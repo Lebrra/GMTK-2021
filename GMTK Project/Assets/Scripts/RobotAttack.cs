@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobotAttack : MonoBehaviour
+public class RobotAttack : MonoBehaviour, IHealth
 {
+    [Header("Limb Properties")]
+    public bool isLeg = false;
     public bool isTurret = true;
 
+    [Header("Health")]
+    [SerializeField]
+    int health;
+    int maxHealth;
+
+    public bool isBroken = false;
+
+    [Header("Weapon Properties")]
+    [Tooltip("Defaults to its own position")]
     public Transform shootPosition;
 
-    [SerializeField]
-    LayerMask enemyLayer;
-
-    public float damage;
+    public int damage;
     public float range;
     public float projectileRange;
     public float cooldown;
@@ -20,16 +28,20 @@ public class RobotAttack : MonoBehaviour
     public int spreadCount = 1;
     public bool canPierce = false;
 
-    public bool attacking;
-
+    [Header("Targetting")]
     [SerializeField]
-    List<Collider> EnemiesList;
+    LayerMask targetLayer;
+    [SerializeField]
+    List<Collider> TargetList;
     [SerializeField]
     GameObject activeTarget;
 
+    bool attacking = false;
+
     private void Start()
     {
-        EnemiesList = new List<Collider>();
+        maxHealth = health;
+        TargetList = new List<Collider>();
         StartCoroutine(FindEnemies());
     }
 
@@ -80,10 +92,10 @@ public class RobotAttack : MonoBehaviour
 
         //Debug.Log("shooting towards " + direction.normalized.ToString());
         Debug.DrawRay(shootPosition.position, -direction.normalized * projectileRange, Color.red, 1F);
-        foreach (var rayHit in Physics.RaycastAll(shootPosition.position, -direction.normalized, projectileRange, enemyLayer))
+        foreach (var rayHit in Physics.RaycastAll(shootPosition.position, -direction.normalized, projectileRange, targetLayer))
         {
             Debug.Log("I have hit " + rayHit.collider.gameObject, gameObject);
-            // damage enemy
+            DoDamage(rayHit.collider.gameObject);
 
             if (!pierce) break;
         }
@@ -100,39 +112,55 @@ public class RobotAttack : MonoBehaviour
 
         List<Collider> withinRange = new List<Collider>();
 
-        foreach (var rayHit in Physics.SphereCastAll(transform.position, range, transform.forward, range, enemyLayer))
+        foreach (var rayHit in Physics.SphereCastAll(transform.position, range, transform.forward, range, targetLayer))
         {
             withinRange.Add(rayHit.collider);
-            if (!EnemiesList.Contains(rayHit.collider)) EnemiesList.Add(rayHit.collider);
+            if (!TargetList.Contains(rayHit.collider)) TargetList.Add(rayHit.collider);
         }
 
         // check if any are dead and/or out of range
-        if (EnemiesList.Count > 0)
+        if (TargetList.Count > 0)
         {
-            for (int i = EnemiesList.Count - 1; i >= 0; i--)
+            for (int i = TargetList.Count - 1; i >= 0; i--)
             {
-                if (withinRange.Contains(EnemiesList[i])) continue;
+                if (withinRange.Contains(TargetList[i])) continue;
                 else
                 {
                     // is this check needed? if its not in the list it should be removed right?
                     //if (Vector3.Distance(EnemiesList[i].transform.position, transform.position) > range) // or if enemy is dead
                     //{
-                        EnemiesList.RemoveAt(i);
+                        TargetList.RemoveAt(i);
                     //}
                 }
             }
         }
 
-        if (activeTarget && !EnemiesList.Contains(activeTarget.GetComponent<Collider>()))
+        if (activeTarget && !TargetList.Contains(activeTarget.GetComponent<Collider>()))
         {
-            if (EnemiesList.Count > 0) activeTarget = EnemiesList[0].gameObject;
+            if (TargetList.Count > 0) activeTarget = TargetList[0].gameObject;
             else activeTarget = null;
         }
-        else if (!activeTarget && EnemiesList.Count > 0) activeTarget = EnemiesList[0].gameObject;
+        else if (!activeTarget && TargetList.Count > 0) activeTarget = TargetList[0].gameObject;
 
-        Debug.Log("Current enemy count: " + EnemiesList.Count, gameObject);
+        Debug.Log("Current enemy count: " + TargetList.Count, gameObject);
 
         yield return new WaitForSeconds(cooldown / 3F);
         StartCoroutine(FindEnemies());
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+    }
+
+    public void GainHealth(int amount)
+    {
+        health += amount;
+        if (health > maxHealth) health = maxHealth;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }

@@ -8,6 +8,11 @@ public class PlayerManager : MonoBehaviour
 
     PlayerMovement pm;
 
+    RobotAttack leftArm = null;
+    RobotAttack rightArm = null;
+    RobotAttack leftLeg = null;
+    RobotAttack rightLeg = null;
+
     Rigidbody rb;
 
     void Start()
@@ -22,5 +27,10 @@ public class PlayerManager : MonoBehaviour
         {
             pm.Move(rb, null, transform);
         }
+    }
+
+    public void AttachLimb(RobotAttack attack)
+    {
+
     }
 }
