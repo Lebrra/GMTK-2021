@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IHealth
 {
-    [SerializeField]
-    private int health = 100;
+    [Header("My health")]
+    public int health = 100;
 
     public void GainHealth(int amount)
     {

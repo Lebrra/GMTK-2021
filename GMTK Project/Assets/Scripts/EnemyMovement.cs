@@ -11,13 +11,17 @@ public class EnemyMovement : MonoBehaviour
     Vector3 destination;
     bool targetMet = false;
     bool attacking = false;
+    Transform target;
 
-    public Transform target;
+    [Header("Movement Stats")]
     public bool canMove;
+    public float moveSpeed = 2.0f;
+
+    [Header("Combat Stats")]
     public float attackRange;
     public int damage = 10;
     public float attackCooldown;
-    public float moveSpeed = 2.0f;
+    [Tooltip("The layers I can see.")]
     public LayerMask sightLayer;
     public List<Transform> thingsInSight = new List<Transform>();
 
@@ -136,8 +140,10 @@ public class EnemyMovement : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        //Sight range
+        /*
+        Sight range
         Gizmos.color = Color.blue;
-        //Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+        */
     }
 }
