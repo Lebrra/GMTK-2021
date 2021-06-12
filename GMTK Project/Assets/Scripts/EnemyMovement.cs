@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine("FindTargets", 0.2f);
+        //StartCoroutine("FindTargets", 0.2f);
     }
 
     void Start()
@@ -37,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
         destination = agent.destination;
         agent.speed = moveSpeed;
         thingsInSight.Add(HubReference.reference.transform);
-        //StartCoroutine("FindTargets", 0.2f);
+        StartCoroutine("FindTargets", 0.2f);
 
         //Might change this
         canMove = true;
@@ -60,6 +60,10 @@ public class EnemyMovement : MonoBehaviour
                 if (target.GetComponent<RobotAttack>() && !target.GetComponent<RobotAttack>().isDead)
                 {
                     Attack();
+
+                    //Might need some changes
+                    if (target.GetComponent<RobotAttack>().isDead)
+                        targetMet = false;
                 }
                 else if (target.GetComponent<HubReference>())
                 {
@@ -137,7 +141,7 @@ public class EnemyMovement : MonoBehaviour
         SetTarget();
     }
 
-    //Add the priority for who to target
+    //Add the priority for who to target here
     void SetTarget()
     {
         if (thingsInSight.Count > 0)
