@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
         plf = GetComponent<PlayerLimbFinder>();
 
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour
 
             if (slot < 0)
             {
-                Debug.Log("cannot pick up turret");
+                Debug.Log("cannot pick up turret (slots are likely full)");
                 return;
             }
             else
@@ -123,10 +123,19 @@ public class PlayerManager : MonoBehaviour
 
     void SetLimbComponent(int index, RobotAttack attack)
     {
-        limbObjects[index].SetActive(true); // set different arm models here!
+        //anim.enabled = false;
+        anim.gameObject.SetActive(false);
+
+        GameObject newLimb = null;
+        if (index % 2 == 0) newLimb = Instantiate(attack.myLimbPrefabLeft, limbObjects[index].transform);
+        else newLimb = Instantiate(attack.myLimbPrefabRight, limbObjects[index].transform);
+        newLimb.transform.SetSiblingIndex(0);
+        newLimb.name = IntToName(index);
+
+        if (limbObjects[index].transform.childCount > 1) Destroy(limbObjects[index].transform.GetChild(1).gameObject);
 
         System.Type type = attack.GetType();
-        Component copy = limbObjects[index].AddComponent(type);
+        Component copy = newLimb.AddComponent(type);
         System.Reflection.FieldInfo[] fields = type.GetFields();
         foreach (System.Reflection.FieldInfo field in fields)
         {
@@ -141,6 +150,15 @@ public class PlayerManager : MonoBehaviour
 
         activeLimbCount++;
         activeLimb = index;
+
+        anim.gameObject.SetActive(true);
+        //StartCoroutine(DelayAnimReset());
+    }
+
+    IEnumerator DelayAnimReset()
+    {
+        yield return new WaitForSecondsRealtime(0.5F);
+        anim.enabled = true;
     }
 
     public void DetatchLimb()
@@ -154,8 +172,10 @@ public class PlayerManager : MonoBehaviour
             //remove limb
             Destroy(limbs[activeLimb]);
             limbs[activeLimb] = null;
-            limbObjects[activeLimb].SetActive(false);
-            
+            //Destroy(limbObjects[activeLimb].transform.GetChild(0).gameObject);
+            limbObjects[activeLimb].transform.GetChild(0).gameObject.SetActive(false);
+
+
             activeLimbCount--;
             if (activeLimbCount > 0) IncrementActiveLimb();
             else activeLimb = -1;
@@ -217,5 +237,17 @@ public class PlayerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2F);
         scrollDelayer = false;
+    }
+
+    string IntToName(int index)
+    {
+        switch (index)
+        {
+            case 0: return "LArmTurret";
+            case 1: return "RArmTurret";
+            case 2: return "pCube12";
+            case 3: return "pCube39";
+            default: return "";
+        }
     }
 }

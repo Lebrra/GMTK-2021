@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 right = new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z);
 
         float generalVelocity = Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y);
-        //anim.SetFloat("Speed", generalVelocity, blendValue, Time.deltaTime);
+        anim.SetBool("isMoving", generalVelocity > blendValue);
 
         if (generalVelocity > blendValue / 2F)
         {

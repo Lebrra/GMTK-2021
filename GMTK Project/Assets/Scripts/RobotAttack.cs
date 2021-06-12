@@ -8,6 +8,8 @@ public class RobotAttack : MonoBehaviour, IHealth
     public bool isLeg = false;
     public bool isTurret = true;
 
+    public GameObject myLimbPrefabLeft;
+    public GameObject myLimbPrefabRight;
     public GameObject myTurretPrefab;
 
     [Header("Health")]
@@ -198,8 +200,8 @@ public class RobotAttack : MonoBehaviour, IHealth
 
         //Debug.Log("Current target count: " + TargetList.Count, gameObject);
 
-        yield return new WaitForSeconds(cooldown / 3F);
-        StartCoroutine(FindEnemies());
+        yield return new WaitForSeconds(0.3F);
+        if (!isDead) StartCoroutine(FindEnemies());
     }
 
     public void TakeDamage(int amount)
@@ -229,5 +231,21 @@ public class RobotAttack : MonoBehaviour, IHealth
     public int GetHealth()
     {
         return health;
+    }
+
+    public void DestroyTurret()
+    {
+        isDead = true;
+        StartCoroutine(Destroying());
+    }
+
+    IEnumerator Destroying()
+    {
+        yield return new WaitForSeconds(0.31F);
+
+        foreach(var target in TargetList)
+        {
+            // remove enemy target for each nearby enemy
+        }
     }
 }
