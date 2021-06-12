@@ -29,7 +29,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MechTop/leftArm/butt
+    path: MechTop/leftArm/LArmSlot/LArmTurret
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -45,7 +45,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: MechTop/rightarm/butt 1
+    path: MechTop/rightarm/RArmSlot/RArmTurret
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -58,14 +58,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4261793491
+      path: 4248741077
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 508906910
+      path: 1035313679
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -109,7 +109,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: MechTop/leftArm/butt
+    path: MechTop/leftArm/LArmSlot/LArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -128,7 +128,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: MechTop/leftArm/butt
+    path: MechTop/leftArm/LArmSlot/LArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -147,7 +147,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: MechTop/leftArm/butt
+    path: MechTop/leftArm/LArmSlot/LArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -166,7 +166,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: MechTop/rightarm/butt 1
+    path: MechTop/rightarm/RArmSlot/RArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -185,7 +185,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: MechTop/rightarm/butt 1
+    path: MechTop/rightarm/RArmSlot/RArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -204,7 +204,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: MechTop/rightarm/butt 1
+    path: MechTop/rightarm/RArmSlot/RArmTurret
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -215,7 +215,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: MechTop/rightarm/butt 1
+    path: MechTop/leftArm/LArmSlot/LArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -225,7 +225,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: MechTop/rightarm/butt 1
+    path: MechTop/leftArm/LArmSlot/LArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -235,7 +235,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: MechTop/rightarm/butt 1
+    path: MechTop/leftArm/LArmSlot/LArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -245,7 +245,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: MechTop/leftArm/butt
+    path: MechTop/rightarm/RArmSlot/RArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -255,7 +255,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: MechTop/leftArm/butt
+    path: MechTop/rightarm/RArmSlot/RArmTurret
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -265,7 +265,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: MechTop/leftArm/butt
+    path: MechTop/rightarm/RArmSlot/RArmTurret
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
