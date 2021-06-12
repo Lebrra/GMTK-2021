@@ -11,7 +11,6 @@ public class EnemyMovement : MonoBehaviour
     Vector3 destination;
     bool targetMet = false;
     bool attacking = false;
-    bool moving = false;
     public Transform target;
 
     [Header("Movement Stats")]
@@ -68,11 +67,8 @@ public class EnemyMovement : MonoBehaviour
                     if (target.GetComponent<RobotAttack>().isDead)
                     {
                         thingsInSight.Remove(target);
-                        //agent.enabled = true;
-                        //myObstacle.enabled = false;
-                        //agent.SetDestination(target.position);
-                        //FindVisableTargets();
                         SetTarget();
+                        //agent.SetDestination(target.position);
                         targetMet = false;
                     }
                 }
@@ -83,8 +79,8 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (!targetMet)
             {
-                agent.enabled = true;
                 myObstacle.enabled = false;
+                agent.enabled = true;
 
                 if (target)
                 {
@@ -161,7 +157,7 @@ public class EnemyMovement : MonoBehaviour
         if (attacking) return;
 
         //Attacking for towers
-        if(target.GetComponent<RobotAttack>())
+        if(target.GetComponent<RobotAttack>() && !target.GetComponent<RobotAttack>().isDead)
             target.GetComponent<RobotAttack>().TakeDamage(damage);
 
         //Attacking for hub
@@ -190,5 +186,17 @@ public class EnemyMovement : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, sightRange);
         */
+    }
+
+    public void UpdateDestination(Transform t)
+    {
+        if (thingsInSight.Contains(t))
+        {
+            thingsInSight.Remove(t);
+            targetMet = false;
+            SetTarget();
+            destination = target.position;
+            //agent.destination = destination;
+        }
     }
 }
