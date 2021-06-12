@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IHealth
 {
+    private int health = 100;
+
     public void GainHealth(int amount)
     {
-        throw new System.NotImplementedException();
+        health += amount;
     }
 
     public int GetHealth()
     {
-        throw new System.NotImplementedException();
+        return health;
     }
 
     public void TakeDamage(int amount)
     {
-        throw new System.NotImplementedException();
+        health -= amount;
     }
 }
