@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     Vector3 destination;
     bool targetMet = false;
     bool attacking = false;
-    Transform target;
+    public Transform target;
 
     [Header("Movement Stats")]
     public bool canMove;
@@ -72,6 +72,12 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (!targetMet)
             {
+                //Might not need
+                FindVisableTargets();
+
+                agent.enabled = true;
+                myObstacle.enabled = false;
+
                 if (target)
                 {
                     destination = target.position;
