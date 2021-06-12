@@ -431,6 +431,7 @@ MonoBehaviour:
   cooldown: 0
   spreadCount: 1
   canPierce: 0
+  isAOE: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -450,8 +451,8 @@ GameObject:
   - component: {fileID: 848435725}
   - component: {fileID: 848435721}
   - component: {fileID: 848435727}
-  - component: {fileID: 848435726}
   - component: {fileID: 848435728}
+  - component: {fileID: 848435726}
   - component: {fileID: 848435729}
   m_Layer: 6
   m_Name: Enemy
@@ -573,12 +574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cad0a2736c6db4aa9e5ce93178537b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   canMove: 0
+  moveSpeed: 4
   attackRange: 1.2
   damage: 10
   attackCooldown: 1
-  moveSpeed: 4
   sightLayer:
     serializedVersion: 2
     m_Bits: 384
