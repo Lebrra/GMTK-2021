@@ -73,24 +73,8 @@ public class RobotAttack : MonoBehaviour, IHealth
         StartCoroutine(FindEnemies());
     }
 
-    public void CopyTurretComponent(RobotAttack reference)
+    public virtual void SetLimb()
     {
-        isTurret = false;
-
-        health = reference.health;
-        maxHealth = reference.maxHealth;
-        isLeg = reference.isLeg;
-        
-        damage = reference.damage;
-        range = reference.range;
-        projectileRange = reference.projectileRange;
-        cooldown = reference.cooldown;
-        spreadCount = reference.spreadCount;
-        canPierce = reference.canPierce;
-        isAOE = reference.isAOE;
-        targetLayer = reference.targetLayer;
-
-        TargetList = new List<Collider>();
         StartCoroutine(FindEnemies());
     }
 
