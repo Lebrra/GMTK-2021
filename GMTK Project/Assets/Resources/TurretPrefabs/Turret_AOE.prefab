@@ -725,6 +725,8 @@ MonoBehaviour:
     m_Bits: 64
   TargetList: []
   activeTarget: {fileID: 0}
+  muzzleFlash: {fileID: 421713980719050125, guid: d09174af59c5b4c4da9d4e79dbd6e09b, type: 3}
+  hitFlash: {fileID: 5477419811253790477, guid: f55cc17ee06012e40915567ba597369e, type: 3}
 --- !u!1 &6691055780764260053
 GameObject:
   m_ObjectHideFlags: 0
