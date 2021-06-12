@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     Vector3 destination;
     bool targetMet = false;
     bool attacking = false;
+    bool moving = false;
     public Transform target;
 
     [Header("Movement Stats")]
@@ -32,12 +33,14 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
+        FindVisableTargets();
         agent = GetComponent<NavMeshAgent>();
         myObstacle = GetComponent<NavMeshObstacle>();
         destination = agent.destination;
         agent.speed = moveSpeed;
         thingsInSight.Add(HubReference.reference.transform);
         StartCoroutine("FindTargets", 0.2f);
+        //moving = true;
 
         //Might change this
         canMove = true;
@@ -63,7 +66,15 @@ public class EnemyMovement : MonoBehaviour
 
                     //Might need some changes
                     if (target.GetComponent<RobotAttack>().isDead)
+                    {
+                        thingsInSight.Remove(target);
+                        //agent.enabled = true;
+                        //myObstacle.enabled = false;
+                        //agent.SetDestination(target.position);
+                        //FindVisableTargets();
+                        SetTarget();
                         targetMet = false;
+                    }
                 }
                 else if (target.GetComponent<HubReference>())
                 {
@@ -72,9 +83,6 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (!targetMet)
             {
-                //Might not need
-                FindVisableTargets();
-
                 agent.enabled = true;
                 myObstacle.enabled = false;
 
@@ -83,7 +91,7 @@ public class EnemyMovement : MonoBehaviour
                     destination = target.position;
                     agent.destination = destination;
 
-                    if (Vector3.Distance(transform.position, destination) < attackRange)
+                    if (Vector3.Distance(transform.position, destination) <= attackRange)
                     {
                         print("Yuh");
                         targetMet = true;
@@ -99,12 +107,9 @@ public class EnemyMovement : MonoBehaviour
 
     public IEnumerator FindTargets(float delay)
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(delay);
-            if (!targetMet)
-                FindVisableTargets();
-        }
+        yield return new WaitForSeconds(delay);
+        if (!targetMet)
+            FindVisableTargets();
     }
 
     public void FindVisableTargets()
@@ -118,13 +123,10 @@ public class EnemyMovement : MonoBehaviour
             if (thingsInSight.Contains(t))
             {
                 //Check if target is dead/inactive
-                if (t.GetComponent<RobotAttack>())
+                if (t.GetComponent<RobotAttack>() && t.GetComponent<RobotAttack>().isDead || !t.gameObject.activeInHierarchy)
                 {
-                    if (t.GetComponent<RobotAttack>().isDead)
-                    {
-                        thingsInSight.Remove(t);
-                        SetTarget();
-                    }
+                    thingsInSight.Remove(t);
+                    SetTarget();
                 }
                 continue;
             }

@@ -146,19 +146,13 @@ public class PlayerManager : MonoBehaviour
 
         // final missing elements:
         limbs[index].myTurretPrefab = attack.myTurretPrefab;
-        limbs[index].shootPosition = limbObjects[index].transform; // change to actual shoot position
+        limbs[index].shootPosition = newLimb.GetComponentInChildren<LimbShootReference>().transform; // change to actual shoot position
+        limbs[index].isTurret = false;
 
         activeLimbCount++;
         activeLimb = index;
 
         anim.gameObject.SetActive(true);
-        //StartCoroutine(DelayAnimReset());
-    }
-
-    IEnumerator DelayAnimReset()
-    {
-        yield return new WaitForSecondsRealtime(0.5F);
-        anim.enabled = true;
     }
 
     public void DetatchLimb()
@@ -166,7 +160,7 @@ public class PlayerManager : MonoBehaviour
         if (activeLimb > -1 && activeLimb < 4)
         {
             //create new turret instance
-            GameObject newTurret = Instantiate(limbs[activeLimb].myTurretPrefab, transform.position + transform.forward.normalized * 2F, transform.rotation);
+            GameObject newTurret = Instantiate(Resources.Load("TurretPrefabs/" + limbs[activeLimb].myTurretPrefab.name) as GameObject, transform.position + transform.forward.normalized * 2F, transform.rotation);
             newTurret.GetComponent<RobotAttack>().SetTurret(limbs[activeLimb].health, limbs[activeLimb].myTurretPrefab);
 
             //remove limb

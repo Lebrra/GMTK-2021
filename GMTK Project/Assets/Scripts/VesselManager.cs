@@ -14,6 +14,8 @@ public class VesselManager : MonoBehaviour
     [Tooltip("The time inbetween vessel spawns")]
     public float timeBtwnReinforcments = 10f;
 
+    public float timeBtwnRounds = 20f;
+
     int roundNum = 1;
     int vesselCount;
     int maxVessels;
@@ -69,6 +71,8 @@ public class VesselManager : MonoBehaviour
         spawning = false;
         roundNum++;
         vesselCount = 0;
+
+        Invoke("StartRound", timeBtwnRounds);
     }
 
     public IEnumerator VesselApproaching()

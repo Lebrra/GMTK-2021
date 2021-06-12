@@ -22,6 +22,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     [Header("Weapon Properties")]
     [Tooltip("Defaults to its own position")]
     public Transform shootPosition;
+    public Transform rotatePoint;
 
     public int damage;
     public float range;
@@ -37,23 +38,27 @@ public class RobotAttack : MonoBehaviour, IHealth
     [SerializeField]
     public LayerMask targetLayer;
     [SerializeField]
-    List<Collider> TargetList;
+    protected List<Collider> TargetList;
     [SerializeField]
-    GameObject activeTarget;
+    protected GameObject activeTarget;
 
-    bool attacking = false;
+    protected bool attacking = false;
 
-    private void Start()
+    [Header("Effects")]
+    public GameObject muzzleFlash;
+    public GameObject hitFlash;
+
+    protected void Start()
     {
-        //TargetList = new List<Collider>();
-        //StartCoroutine(FindEnemies());
+        TargetList = new List<Collider>();
+        StartCoroutine(FindEnemies());
     }
 
-    private void Update()
+    protected void Update()
     {
         if (!attacking)
         {
-            if (isTurret) Attack();
+            /*if (isTurret)*/ Attack();
             //else if (Input.GetKeyDown(KeyCode.Space)) Attack();
         }
     }
@@ -91,10 +96,14 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     public virtual void Attack()
     {
-        if (attacking) return;
+        if (!rotatePoint) rotatePoint = transform;
+
+        if (attacking || !activeTarget) return;
 
         //Debug.Log("attack!");
         attacking = true;
+
+        MuzzleFlash(shootPosition.position);
 
         if (isAOE) ShootSphereCast();
         else
@@ -126,14 +135,23 @@ public class RobotAttack : MonoBehaviour, IHealth
     {
         if (!activeTarget) return;
 
-        Vector3 direction = new Vector3(transform.position.x - activeTarget.transform.position.x, 0F, transform.position.z - activeTarget.transform.position.z);   // change this height later as needed
+        Vector3 direction = new Vector3(transform.position.x - activeTarget.transform.position.x, rotatePoint.position.y - activeTarget.transform.position.y, transform.position.z - activeTarget.transform.position.z);   // change this height later as needed
         direction = Quaternion.Euler(0, angleOffset, 0) * direction;
+        direction = new Vector3(-direction.normalized.x, -0.05F, -direction.normalized.z);
+        //direction = new Vector3(-direction.normalized.x, -direction.normalized.y, -direction.normalized.z);
+
+        if (isTurret && rotatePoint != transform && angleOffset == 0)
+        {
+            rotatePoint.rotation = Quaternion.LookRotation(direction);
+        }
+        DoVisual(shootPosition.position, direction, projectileRange, cooldown / 2F);
 
         //Debug.Log("shooting towards " + direction.normalized.ToString());
-        Debug.DrawRay(shootPosition.position, -direction.normalized * projectileRange, Color.red, 1F);
-        foreach (var rayHit in Physics.RaycastAll(shootPosition.position, -direction.normalized, projectileRange, targetLayer))
+        Debug.DrawRay(shootPosition.position, direction * projectileRange, Color.red, 1F);
+        foreach (var rayHit in Physics.RaycastAll(shootPosition.position, direction, projectileRange, targetLayer))
         {
             //Debug.Log("I have hit " + rayHit.collider.gameObject, gameObject);
+            StartCoroutine(HitVisual(rayHit.point));
             DoDamage(rayHit.collider.gameObject);
 
             if (!pierce) break;
@@ -148,6 +166,7 @@ public class RobotAttack : MonoBehaviour, IHealth
         foreach (var rayHit in Physics.SphereCastAll(transform.position, projectileRange, transform.forward, projectileRange, targetLayer))
         {
             //Debug.Log("I have hit " + rayHit.collider.gameObject, gameObject);
+            StartCoroutine(HitVisual(rayHit.point));
             DoDamage(rayHit.collider.gameObject);
         }
     }
@@ -217,6 +236,7 @@ public class RobotAttack : MonoBehaviour, IHealth
             else
             {
                 isDead = true;
+                DestroyTurret();
                 Debug.LogWarning("TURRET DIED");
             }
         }
@@ -239,13 +259,46 @@ public class RobotAttack : MonoBehaviour, IHealth
         StartCoroutine(Destroying());
     }
 
-    IEnumerator Destroying()
+    protected IEnumerator Destroying()
     {
         yield return new WaitForSeconds(0.31F);
 
         foreach(var target in TargetList)
         {
+            if (target.GetComponent<EnemyMovement>().thingsInSight.Contains(transform)) target.GetComponent<EnemyMovement>().thingsInSight.Remove(transform);
             // remove enemy target for each nearby enemy
         }
+    }
+
+    protected virtual void DoVisual(Vector3 shotPos, Vector3 direction, float distance, float duration)
+    {
+        // on default do nothing for now
+        //Debug.Log("do the visual");
+    }
+
+    protected virtual IEnumerator HitVisual(Vector3 hitPoint)
+    {
+        yield return new WaitForSeconds(cooldown / 2F);
+
+        if (hitFlash)
+        {
+            GameObject effect = Instantiate(hitFlash, hitPoint, rotatePoint.rotation);
+            StartCoroutine(DestroyObject(effect, 0.6F));
+        }
+    }
+
+    protected virtual void MuzzleFlash(Vector3 shotPos)
+    {
+        if (muzzleFlash)
+        {
+            GameObject effect = Instantiate(muzzleFlash, shotPos, rotatePoint.rotation);
+            StartCoroutine(DestroyObject(effect, 0.6F));
+        }
+    }
+
+    protected IEnumerator DestroyObject(GameObject obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(obj);
     }
 }
