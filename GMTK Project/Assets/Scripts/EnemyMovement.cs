@@ -25,6 +25,11 @@ public class EnemyMovement : MonoBehaviour
     public LayerMask sightLayer;
     public List<Transform> thingsInSight = new List<Transform>();
 
+    private void Awake()
+    {
+        StartCoroutine("FindTargets", 0.2f);
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -32,7 +37,10 @@ public class EnemyMovement : MonoBehaviour
         destination = agent.destination;
         agent.speed = moveSpeed;
         thingsInSight.Add(HubReference.reference.transform);
-        StartCoroutine("FindTargets", 0.2f);
+        //StartCoroutine("FindTargets", 0.2f);
+
+        //Might change this
+        canMove = true;
     }
 
     void Update()
@@ -60,13 +68,16 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (!targetMet)
             {
-                destination = target.position;
-                agent.destination = destination;
-
-                if (Vector3.Distance(transform.position, destination) < attackRange)
+                if (target)
                 {
-                    print("Yuh");
-                    targetMet = true;
+                    destination = target.position;
+                    agent.destination = destination;
+
+                    if (Vector3.Distance(transform.position, destination) < attackRange)
+                    {
+                        print("Yuh");
+                        targetMet = true;
+                    }
                 }
             }
         }
