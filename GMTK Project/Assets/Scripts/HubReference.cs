@@ -44,5 +44,10 @@ public class HubReference : MonoBehaviour, IHealth
     public void TakeDamage(int amount)
     {
         health -= amount;
+
+        if(health <= 0)
+        {
+            gameState = false;
+        }
     }
 }

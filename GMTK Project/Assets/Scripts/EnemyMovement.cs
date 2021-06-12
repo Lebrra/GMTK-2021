@@ -73,7 +73,7 @@ public class EnemyMovement : MonoBehaviour
             else if (!targetMet)
             {
                 //Might not need
-                FindVisableTargets();
+                //FindVisableTargets();
 
                 agent.enabled = true;
                 myObstacle.enabled = false;
@@ -118,13 +118,10 @@ public class EnemyMovement : MonoBehaviour
             if (thingsInSight.Contains(t))
             {
                 //Check if target is dead/inactive
-                if (t.GetComponent<RobotAttack>())
+                if (t.GetComponent<RobotAttack>() && t.GetComponent<RobotAttack>().isDead)
                 {
-                    if (t.GetComponent<RobotAttack>().isDead)
-                    {
-                        thingsInSight.Remove(t);
-                        SetTarget();
-                    }
+                    thingsInSight.Remove(t);
+                    SetTarget();
                 }
                 continue;
             }
