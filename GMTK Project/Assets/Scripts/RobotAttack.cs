@@ -27,6 +27,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     [Tooltip("Keep this an odd number")]
     public int spreadCount = 1;
     public bool canPierce = false;
+    public bool isAOE = false;
 
     [Header("Targetting")]
     [SerializeField]
@@ -58,22 +59,26 @@ public class RobotAttack : MonoBehaviour, IHealth
     {
         if (attacking) return;
 
-        Debug.Log("attack!");
+        //Debug.Log("attack!");
         attacking = true;
-        ShootRaycast(0, canPierce);
 
-        if(spreadCount > 1)
+        if (isAOE) ShootSphereCast();
+        else
         {
-            // keep this an odd number
-            if (spreadCount % 2 == 0) spreadCount++;
+            ShootRaycast(0, canPierce);
 
-            for (int i = 1; i < spreadCount; i+=2)
+            if (spreadCount > 1)
             {
-                ShootRaycast(5 * i, canPierce);
-                ShootRaycast(-5 * i, canPierce);
+                // keep this an odd number
+                if (spreadCount % 2 == 0) spreadCount++;
+
+                for (int i = 1; i < spreadCount; i += 2)
+                {
+                    ShootRaycast(5 * i, canPierce);
+                    ShootRaycast(-5 * i, canPierce);
+                }
             }
         }
-
         StartCoroutine(ResetAttack());
     }
 
@@ -94,19 +99,36 @@ public class RobotAttack : MonoBehaviour, IHealth
         Debug.DrawRay(shootPosition.position, -direction.normalized * projectileRange, Color.red, 1F);
         foreach (var rayHit in Physics.RaycastAll(shootPosition.position, -direction.normalized, projectileRange, targetLayer))
         {
-            Debug.Log("I have hit " + rayHit.collider.gameObject, gameObject);
+            //Debug.Log("I have hit " + rayHit.collider.gameObject, gameObject);
             DoDamage(rayHit.collider.gameObject);
 
             if (!pierce) break;
         }
     }
 
+    protected void ShootSphereCast()
+    {
+        if (TargetList.Count < 1) return;
+
+        //Debug.Log("shooting towards " + direction.normalized.ToString());
+        foreach (var rayHit in Physics.SphereCastAll(transform.position, projectileRange, transform.forward, projectileRange, targetLayer))
+        {
+            //Debug.Log("I have hit " + rayHit.collider.gameObject, gameObject);
+            DoDamage(rayHit.collider.gameObject);
+        }
+    }
+
     protected virtual void DoDamage(GameObject hit)
     {
         // do the damage to the thing
+        if (hit.GetComponent<EnemyHealth>())
+        {
+            hit.GetComponent<EnemyHealth>().TakeDamage(damage);
+        }
+        else Debug.LogError("targetted enemy does not have health...", hit);
     }
 
-    protected virtual IEnumerator FindEnemies()
+    protected IEnumerator FindEnemies()
     {
         // find all enemies within range distance, if not in list then add them         layer 6 is enemies
 
@@ -142,7 +164,7 @@ public class RobotAttack : MonoBehaviour, IHealth
         }
         else if (!activeTarget && TargetList.Count > 0) activeTarget = TargetList[0].gameObject;
 
-        Debug.Log("Current enemy count: " + TargetList.Count, gameObject);
+        //Debug.Log("Current target count: " + TargetList.Count, gameObject);
 
         yield return new WaitForSeconds(cooldown / 3F);
         StartCoroutine(FindEnemies());
@@ -151,6 +173,18 @@ public class RobotAttack : MonoBehaviour, IHealth
     public void TakeDamage(int amount)
     {
         health -= amount;
+        if (health <= 0)
+        {
+            if (!isBroken)
+            {
+                isBroken = true;
+                health = maxHealth;
+            }
+            else
+            {
+                Debug.LogWarning("TURRET DIED");
+            }
+        }
     }
 
     public void GainHealth(int amount)
