@@ -6,7 +6,10 @@ public class Vessel : MonoBehaviour
 {
     public Transform goonLocation;
     public GameObject enemyInstance;
+    [Tooltip("Time between each enemy spawn.")]
     public float timeBtwnEachGoon = 1f;
+    [Tooltip("Time before enemies leave the vessel.")]
+    public float holdTime = 3f;
     public int maxGoonCount = 5;
     int goonCount = 0;
 
@@ -16,7 +19,7 @@ public class Vessel : MonoBehaviour
     void Start()
     {
         canSpawn = true;
-        Invoke("StartSpawning", 2f);
+        Invoke("StartSpawning", holdTime);
     }
 
     private void Update()
@@ -33,7 +36,10 @@ public class Vessel : MonoBehaviour
         }
 
         if (goonCount == maxGoonCount)
+        {
+            canSpawn = false;
             Destroy(this.gameObject);
+        }
     }
 
     public void StartSpawning()

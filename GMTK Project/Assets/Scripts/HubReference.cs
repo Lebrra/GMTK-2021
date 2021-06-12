@@ -7,10 +7,28 @@ public class HubReference : MonoBehaviour, IHealth
     public static HubReference reference;
     public int health = 100;
 
+    public bool gameState = true;
+
+    public GameObject gameOverPanel;
+
     void Awake()
     {
         if (reference) Destroy(gameObject);
         else reference = this;
+    }
+
+    private void Start()
+    {
+        gameOverPanel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (!gameState)
+        {
+            Time.timeScale = 0;
+            gameOverPanel.SetActive(true);
+        }
     }
 
     public void GainHealth(int amount)
@@ -27,5 +45,4 @@ public class HubReference : MonoBehaviour, IHealth
     {
         health -= amount;
     }
-
 }
