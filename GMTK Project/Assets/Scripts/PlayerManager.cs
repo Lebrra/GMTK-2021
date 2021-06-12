@@ -14,18 +14,21 @@ public class PlayerManager : MonoBehaviour
     RobotAttack rightLeg = null;
 
     Rigidbody rb;
+    Animator anim;
 
     void Start()
     {
         pm = GetComponent<PlayerMovement>();
+
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         if (active)
         {
-            pm.Move(rb, null, transform);
+            pm.Move(rb, anim, transform);
         }
     }
 

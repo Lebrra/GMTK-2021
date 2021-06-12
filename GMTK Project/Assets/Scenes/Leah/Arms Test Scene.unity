@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 1120064450}
   - component: {fileID: 1120064449}
   - component: {fileID: 1120064448}
+  - component: {fileID: 1120064452}
   m_Layer: 6
   m_Name: Temp Enemy
   m_TagString: Untagged
@@ -407,6 +408,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120064452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120064447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a974cb2d927674c9a610486e8502ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1363129190
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,12 +683,13 @@ MonoBehaviour:
   health: 0
   isBroken: 0
   shootPosition: {fileID: 2076667279}
-  damage: 0
+  damage: 5
   range: 4.64
   projectileRange: 5.01
   cooldown: 1.3
-  spreadCount: 7
+  spreadCount: 5
   canPierce: 0
+  isAOE: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -751,7 +766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076667274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
