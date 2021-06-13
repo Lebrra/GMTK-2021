@@ -59,14 +59,14 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DirectionPitch: 9
-    - _DirectionYaw: 103
+    - _DirectionPitch: 0
+    - _DirectionYaw: 0
     - _DstBlend: 0
-    - _Exponent: 1.63
+    - _Exponent: 1.49
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Intensity: 1
+    - _Intensity: 0.931
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -78,8 +78,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.7315059, g: 0.8080773, b: 0.8301887, a: 1}
-    - _Color2: {r: 0.5573514, g: 0.5848687, b: 0.7169812, a: 1}
-    - _Direction: {r: 0.15242507, g: 0.98768836, b: -0.03519009, a: 0}
+    - _Color1: {r: 0.542969, g: 0.6338152, b: 0.7735849, a: 1}
+    - _Color2: {r: 0.23789604, g: 0.2697601, b: 0.4245283, a: 1}
+    - _Direction: {r: 0, g: 1, b: -0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
