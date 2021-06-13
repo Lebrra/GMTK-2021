@@ -299,6 +299,7 @@ MonoBehaviour:
   myLimbPrefabRight: {fileID: 0}
   myTurretPrefab: 
   smoke: {fileID: 0}
+  healthBar: {fileID: 0}
   health: 50
   maxHealth: 50
   isBroken: 0
@@ -428,6 +429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret_Flamthrower
       objectReference: {fileID: 0}
+    - target: {fileID: 8554708122125421659, guid: a5659575bd27b6c45aa55282d0ad99b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9075805596717881057, guid: a5659575bd27b6c45aa55282d0ad99b8, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -526,7 +531,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 80e48b77736fcc24baecfb413168cac3, type: 2}
+  - {fileID: 2100000, guid: f5ce8e546272d1a4abbf2dae513fc4a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -625,6 +630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hub
       objectReference: {fileID: 0}
+    - target: {fileID: 666201430637029534, guid: 6f8d918ac715b7648b777611647ff625, type: 3}
+      propertyPath: health
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8d918ac715b7648b777611647ff625, type: 3}
 --- !u!1 &554887419 stripped
@@ -691,6 +700,10 @@ PrefabInstance:
     - target: {fileID: 3297860511207844137, guid: bd2fef18ef1166f469cdc531f2a8ed43, type: 3}
       propertyPath: m_Name
       value: Turret_Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297860511207844137, guid: bd2fef18ef1166f469cdc531f2a8ed43, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd2fef18ef1166f469cdc531f2a8ed43, type: 3}
@@ -813,6 +826,10 @@ PrefabInstance:
     - target: {fileID: 4805708975521332647, guid: 0a81ab2890f64634b8bdc504e6c37d56, type: 3}
       propertyPath: m_Name
       value: Turret_Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805708975521332647, guid: 0a81ab2890f64634b8bdc504e6c37d56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5330747335929145117, guid: 0a81ab2890f64634b8bdc504e6c37d56, type: 3}
       propertyPath: m_RootOrder
@@ -1545,6 +1562,7 @@ MonoBehaviour:
   myLimbPrefabRight: {fileID: 0}
   myTurretPrefab: 
   smoke: {fileID: 0}
+  healthBar: {fileID: 0}
   health: 50
   maxHealth: 50
   isBroken: 0

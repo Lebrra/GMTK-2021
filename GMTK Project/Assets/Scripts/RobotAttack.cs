@@ -13,6 +13,8 @@ public class RobotAttack : MonoBehaviour, IHealth
     public string myTurretPrefab;
 
     public GameObject smoke;
+    public GameObject healthBar;
+    HealthBar3D barRef;
 
     [Header("Health")]
     public int health;
@@ -53,8 +55,8 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     protected void Start()
     {
-        TargetList = new List<Collider>();
-        StartCoroutine(FindEnemies());
+        //TargetList = new List<Collider>();
+        //StartCoroutine(FindEnemies());
     }
 
     protected void Update()
@@ -79,6 +81,12 @@ public class RobotAttack : MonoBehaviour, IHealth
         isTurret = true;
         myTurretPrefab = prefabRef;
 
+        healthBar = Instantiate(healthBar, transform);
+        healthBar.transform.rotation = Quaternion.identity;
+        barRef = healthBar.GetComponent<HealthBar3D>();
+        if (health == maxHealth) healthBar.SetActive(false);
+        else barRef?.SetHealth((float)health / (float)maxHealth);
+
         TargetList = new List<Collider>();
         StartCoroutine(FindEnemies());
     }
@@ -86,11 +94,12 @@ public class RobotAttack : MonoBehaviour, IHealth
     public virtual void SetLimb()
     {
         attacking = true;
-        if (gameObject.activeInHierarchy)
-        {
-            StartCoroutine(FindEnemies());
-            StartCoroutine(ResetAttack(0.5F));
-        }
+        //if (gameObject.activeInHierarchy)
+        //{
+        TargetList = new List<Collider>();
+        StartCoroutine(FindEnemies());
+        StartCoroutine(ResetAttack(0.5F));
+        //}
     }
 
     public virtual void Attack()
@@ -227,6 +236,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     public void TakeDamage(int amount)
     {
         health -= amount;
+
         if (health <= 0)
         {
             if (!isBroken)
@@ -243,6 +253,8 @@ public class RobotAttack : MonoBehaviour, IHealth
                 Debug.LogWarning("TURRET DIED");
             }
         }
+
+        if (isTurret) barRef?.SetHealth((float)health / (float)maxHealth);
     }
 
     public void GainHealth(int amount)

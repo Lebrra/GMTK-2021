@@ -154,12 +154,12 @@ public class PlayerManager : MonoBehaviour
         limbs[index].shootPosition = newLimb.GetComponentInChildren<LimbShootReference>().transform; // change to actual shoot position
         limbs[index].isTurret = false;
 
-        limbs[index].SetLimb();
-
         activeLimbCount++;
         activeLimb = index;
 
         anim.gameObject.SetActive(true);
+
+        limbs[index].SetLimb();
     }
 
     public void DetatchLimb()
