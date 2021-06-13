@@ -249,8 +249,9 @@ public class RobotAttack : MonoBehaviour, IHealth
 
         foreach(var target in TargetList)
         {
-            if (target.GetComponent<EnemyMovement>().thingsInSight.Contains(transform)) target.GetComponent<EnemyMovement>().thingsInSight.Remove(transform);
+            //if (target.GetComponent<EnemyMovement>().thingsInSight.Contains(transform)) target.GetComponent<EnemyMovement>().thingsInSight.Remove(transform);
             // remove enemy target for each nearby enemy
+            target.GetComponent<EnemyMovement>().UpdateDestination(transform);
         }
     }
 
