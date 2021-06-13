@@ -297,7 +297,7 @@ MonoBehaviour:
   isTurret: 0
   myLimbPrefabLeft: {fileID: 0}
   myLimbPrefabRight: {fileID: 0}
-  myTurretPrefab: {fileID: 5097125182811065488, guid: 1af08ae1dd772db4bac09bf5ce1cf988, type: 3}
+  myTurretPrefab: 
   health: 50
   maxHealth: 50
   isBroken: 0
@@ -423,6 +423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4680547094861350482, guid: a5659575bd27b6c45aa55282d0ad99b8, type: 3}
+      propertyPath: myTurretPrefab
+      value: Turret_Flamthrower
+      objectReference: {fileID: 0}
     - target: {fileID: 8554708122125421659, guid: a5659575bd27b6c45aa55282d0ad99b8, type: 3}
       propertyPath: m_Name
       value: Turret_Flamthrower
@@ -598,7 +602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1120064448
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -697,6 +701,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4805708975521332647, guid: 0a81ab2890f64634b8bdc504e6c37d56, type: 3}
       propertyPath: m_Name
+      value: Turret_Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805708975521332696, guid: 0a81ab2890f64634b8bdc504e6c37d56, type: 3}
+      propertyPath: myTurretPrefab
       value: Turret_Laser
       objectReference: {fileID: 0}
     - target: {fileID: 5330747335929145117, guid: 0a81ab2890f64634b8bdc504e6c37d56, type: 3}
@@ -1371,7 +1379,7 @@ MonoBehaviour:
   isTurret: 0
   myLimbPrefabLeft: {fileID: 0}
   myLimbPrefabRight: {fileID: 0}
-  myTurretPrefab: {fileID: 5097125182811065488, guid: 1af08ae1dd772db4bac09bf5ce1cf988, type: 3}
+  myTurretPrefab: 
   health: 50
   maxHealth: 50
   isBroken: 0
@@ -1399,6 +1407,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3402369495630876741, guid: a6ef702a3ec4160488fed42bdda7f1b5, type: 3}
+      propertyPath: myTurretPrefab
+      value: Turret_Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402369497089705276, guid: a6ef702a3ec4160488fed42bdda7f1b5, type: 3}
+      propertyPath: myTurretPrefab
+      value: Turret_Default
+      objectReference: {fileID: 0}
     - target: {fileID: 3402369497211403141, guid: a6ef702a3ec4160488fed42bdda7f1b5, type: 3}
       propertyPath: m_Name
       value: Player

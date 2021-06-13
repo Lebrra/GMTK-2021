@@ -57,7 +57,7 @@ public class PlayerLimbFinder : MonoBehaviour
     public void RemoveTurret(RobotAttack turret)
     {
         if (nearbyLimbs.Contains(turret)) nearbyLimbs.Remove(turret);
-        // REMOVE THIS TARGET FROM ENEMIES
-        Destroy(turret.gameObject);
+        turret.DestroyTurret();
+        //Destroy(turret.gameObject);
     }
 }
