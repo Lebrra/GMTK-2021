@@ -18,9 +18,12 @@ public class Vessel : MonoBehaviour
     public bool spawning = false;
     public bool canSpawn = false;
 
+    AudioSource audioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         canSpawn = true;
         Invoke("StartSpawning", holdTime);
     }
@@ -41,6 +44,7 @@ public class Vessel : MonoBehaviour
         {
             Instantiate(enemyInstance, goonLocation.position, Quaternion.identity);
             goonCount++;
+            VesselManager.inst.goonsRemaining++;
         }
 
         if (goonCount == maxGoonCount)
@@ -69,6 +73,7 @@ public class Vessel : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             Instantiate(groundVfx, transform);
+            audioSource.Play();
             fireVfx.SetActive(false);
         }
     }
