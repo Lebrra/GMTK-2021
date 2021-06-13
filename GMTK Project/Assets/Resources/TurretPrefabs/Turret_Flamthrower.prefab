@@ -2134,6 +2134,7 @@ MonoBehaviour:
   myLimbPrefabRight: {fileID: 1186468787180846941, guid: 92610f6d295aad14c8b2f27192b8a5e8, type: 3}
   myTurretPrefab: Turret_Flamthrower
   smoke: {fileID: 7447860790897553282}
+  healthBar: {fileID: 8878155438545600530, guid: 0b39aa5b22b81ba45a9f662a1f8a5c75, type: 3}
   health: 50
   maxHealth: 50
   isBroken: 0

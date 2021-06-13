@@ -13,6 +13,8 @@ public class RobotAttack : MonoBehaviour, IHealth
     public string myTurretPrefab;
 
     public GameObject smoke;
+    public GameObject healthBar;
+    HealthBar3D barRef;
 
     [Header("Health")]
     public int health;
@@ -78,6 +80,12 @@ public class RobotAttack : MonoBehaviour, IHealth
         health = currentHealth;
         isTurret = true;
         myTurretPrefab = prefabRef;
+
+        healthBar = Instantiate(healthBar, transform);
+        healthBar.transform.rotation = Quaternion.identity;
+        barRef = healthBar.GetComponent<HealthBar3D>();
+        if (health == maxHealth) healthBar.SetActive(false);
+        else barRef?.SetHealth((float)health / (float)maxHealth);
 
         TargetList = new List<Collider>();
         StartCoroutine(FindEnemies());
@@ -227,6 +235,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     public void TakeDamage(int amount)
     {
         health -= amount;
+
         if (health <= 0)
         {
             if (!isBroken)
@@ -243,6 +252,8 @@ public class RobotAttack : MonoBehaviour, IHealth
                 Debug.LogWarning("TURRET DIED");
             }
         }
+
+        if (isTurret) barRef?.SetHealth((float)health / (float)maxHealth);
     }
 
     public void GainHealth(int amount)
