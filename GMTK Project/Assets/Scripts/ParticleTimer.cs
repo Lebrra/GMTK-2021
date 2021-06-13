@@ -12,7 +12,12 @@ public class ParticleTimer : MonoBehaviour
         if (liveTime > 4F) Destroy(gameObject);
     }
 
-    public IEnumerator LifeSpan(float time)
+    public void LifeSpan(float time)
+    {
+        StartCoroutine(EndLife(time));
+    }
+
+    IEnumerator EndLife(float time)
     {
         yield return new WaitForSeconds(time);
 
