@@ -40,6 +40,18 @@ public class VesselManager : MonoBehaviour
             case 2:
                 maxVessels = 5;
                 return;
+            case 3:
+                maxVessels = 7;
+                return;
+            case 4:
+                maxVessels = 9;
+                return;
+            case 5:
+                maxVessels = 12;
+                return;
+            default:
+                maxVessels = 12;
+                return;
         }
     }
 

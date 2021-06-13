@@ -32036,7 +32036,7 @@ GameObject:
   - component: {fileID: 828087150}
   - component: {fileID: 828087149}
   - component: {fileID: 828087148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
