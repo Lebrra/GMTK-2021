@@ -6,15 +6,22 @@ public class HubReference : MonoBehaviour, IHealth
 {
     public static HubReference reference;
     public int health = 100;
+    int maxHealth;
 
     public bool gameState = true;
 
     public GameObject gameOverPanel;
 
+    public HealthBar3D myHealthBar;
+
     void Awake()
     {
         if (reference) Destroy(gameObject);
-        else reference = this;
+        else
+        {
+            reference = this;
+            maxHealth = health;
+        }
     }
 
     private void Start()
@@ -44,6 +51,7 @@ public class HubReference : MonoBehaviour, IHealth
     public void TakeDamage(int amount)
     {
         health -= amount;
+        myHealthBar?.SetHealth((float)health / (float)maxHealth);
 
         if(health <= 0)
         {
