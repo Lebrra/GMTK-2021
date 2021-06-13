@@ -15129,6 +15129,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3660425653548891111}
   m_Mesh: {fileID: 4711208715938537054, guid: 735d06a6cdc5a684eb5e63c3949220e7, type: 3}
+--- !u!1001 &1477197104635236890
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280245, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336392647266280248, guid: ae6da12d034fa354db356e4434874796, type: 3}
+      propertyPath: m_Name
+      value: ElectricArmPuff
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae6da12d034fa354db356e4434874796, type: 3}
 --- !u!1001 &1581529113337080161
 PrefabInstance:
   m_ObjectHideFlags: 0
