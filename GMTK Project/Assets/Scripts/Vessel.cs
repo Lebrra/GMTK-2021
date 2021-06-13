@@ -13,6 +13,7 @@ public class Vessel : MonoBehaviour
     public int maxGoonCount = 5;
     int goonCount = 0;
     Rigidbody rb;
+    public GameObject groundVfx, fireVfx;
 
     public bool spawning = false;
     public bool canSpawn = false;
@@ -31,7 +32,7 @@ public class Vessel : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(transform.up * -30);
+        rb.AddForce(transform.up * -40);
     }
 
     public void DeployTheGoons()
@@ -61,5 +62,14 @@ public class Vessel : MonoBehaviour
         yield return new WaitForSeconds(timeBtwnEachGoon);
 
         if (canSpawn) StartCoroutine("Spawning");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Instantiate(groundVfx, transform);
+            fireVfx.SetActive(false);
+        }
     }
 }

@@ -33,11 +33,12 @@ public class VesselManager : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine("StartRound");
         }
-
+        */
         switch (roundNum)
         {
             case 1:
