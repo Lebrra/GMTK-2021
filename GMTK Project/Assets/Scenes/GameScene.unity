@@ -375,7 +375,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3402369497211403140, guid: a6ef702a3ec4160488fed42bdda7f1b5, type: 3}
       propertyPath: speed
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3402369497211403141, guid: a6ef702a3ec4160488fed42bdda7f1b5, type: 3}
       propertyPath: m_Name
@@ -1097,6 +1097,10 @@ PrefabInstance:
     - target: {fileID: 666201430637029529, guid: 6f8d918ac715b7648b777611647ff625, type: 3}
       propertyPath: m_Name
       value: Hub
+      objectReference: {fileID: 0}
+    - target: {fileID: 666201430637029534, guid: 6f8d918ac715b7648b777611647ff625, type: 3}
+      propertyPath: health
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8d918ac715b7648b777611647ff625, type: 3}
@@ -35719,7 +35723,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 86
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -40527,6 +40531,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1861860339}
+    - target: {fileID: 7967367063902406344, guid: bf5061495dccace41992fac2673824ca, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 86
+      objectReference: {fileID: 0}
     - target: {fileID: 7967367063902406345, guid: bf5061495dccace41992fac2673824ca, type: 3}
       propertyPath: m_Name
       value: CameraPositioner

@@ -55,8 +55,8 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     protected void Start()
     {
-        TargetList = new List<Collider>();
-        StartCoroutine(FindEnemies());
+        //TargetList = new List<Collider>();
+        //StartCoroutine(FindEnemies());
     }
 
     protected void Update()
@@ -94,11 +94,12 @@ public class RobotAttack : MonoBehaviour, IHealth
     public virtual void SetLimb()
     {
         attacking = true;
-        if (gameObject.activeInHierarchy)
-        {
-            StartCoroutine(FindEnemies());
-            StartCoroutine(ResetAttack(0.5F));
-        }
+        //if (gameObject.activeInHierarchy)
+        //{
+        TargetList = new List<Collider>();
+        StartCoroutine(FindEnemies());
+        StartCoroutine(ResetAttack(0.5F));
+        //}
     }
 
     public virtual void Attack()
