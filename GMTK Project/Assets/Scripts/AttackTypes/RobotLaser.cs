@@ -16,6 +16,7 @@ public class RobotLaser : RobotAttack
         attacking = true;
 
         //MuzzleFlash(shootPosition.position);
+        PlaySound();
 
         if (isAOE) ShootSphereCast();
         else
@@ -75,5 +76,11 @@ public class RobotLaser : RobotAttack
             target?.UpdateDestination(transform);
         }
         Destroy(gameObject);
+    }
+
+    protected override void PlaySound()
+    {
+        if (isTurret) /*play turret sound*/;
+        else /*play arm sound*/;
     }
 }
