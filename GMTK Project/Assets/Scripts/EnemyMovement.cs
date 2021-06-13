@@ -114,9 +114,15 @@ public class EnemyMovement : MonoBehaviour
 
     public IEnumerator FindTargets(float delay)
     {
-        yield return new WaitForSeconds(delay);
-        if (!targetMet)
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            /*
+            if (!targetMet)
+                FindVisableTargets();
+            */
             FindVisableTargets();
+        }
     }
 
     public void FindVisableTargets()

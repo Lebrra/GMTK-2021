@@ -19,7 +19,21 @@ public class VesselManager : MonoBehaviour
 
     int roundNum = 1;
     int vesselCount;
-    int maxVessels;
+    int maxVessels = 3;
+
+    public int goonsRemaining = 0;
+
+    public static VesselManager inst;
+
+    private void Awake()
+    {
+        if (inst != null)
+        {
+            Destroy(this);
+        }
+        else
+            inst = this;
+    }
 
     void Start()
     {
@@ -39,6 +53,12 @@ public class VesselManager : MonoBehaviour
             StartCoroutine("StartRound");
         }
         */
+        if (goonsRemaining == 0 && vesselCount == maxVessels)
+        {
+            Debug.Log("Round Over.");
+            AllGoonsDead();
+        }
+
         switch (roundNum)
         {
             case 1:
@@ -92,12 +112,20 @@ public class VesselManager : MonoBehaviour
     public void StopRound()
     {
         StopCoroutine("VesselApproaching");
-        roundState = false;
+        //roundState = false;
         spawning = false;
-        roundNum++;
-        vesselCount = 0;
+        //vesselCount = 0;
 
-        Invoke("IShouldChangeThis", 10f);
+        //Invoke("IShouldChangeThis", 10f);
+        //Invoke("StartRound", timeBtwnRounds);
+    }
+
+    public void AllGoonsDead()
+    {
+        AudioManager.inst.FadeOut();
+        roundState = false;
+        vesselCount = 0;
+        roundNum++;
         Invoke("StartRound", timeBtwnRounds);
     }
 

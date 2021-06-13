@@ -203,7 +203,7 @@ MonoBehaviour:
   canMove: 0
   moveSpeed: 2
   attackRange: 2
-  damage: 2
+  damage: 1
   attackCooldown: 1
   sightLayer:
     serializedVersion: 2

@@ -21,9 +21,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         health -= amount;
 
-        if (health <= 0)
+        if (health == 0)
         {
             //Add enemy death sfx here
+            Debug.Log("Dead");
+            VesselManager.inst.goonsRemaining--;
             Destroy(this.gameObject);
         }
     }
