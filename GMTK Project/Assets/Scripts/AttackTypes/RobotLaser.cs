@@ -55,7 +55,7 @@ public class RobotLaser : RobotAttack
         if (hitFlash)
         {
             GameObject effect = Instantiate(hitFlash, hitPoint, rotatePoint.rotation);
-            StartCoroutine(effect.GetComponent<ParticleTimer>().LifeSpan(0.6F));
+            effect.GetComponent<ParticleTimer>().LifeSpan(0.6F);
         }
     }
 

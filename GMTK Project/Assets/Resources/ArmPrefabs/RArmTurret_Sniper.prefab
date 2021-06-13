@@ -390,10 +390,14 @@ MonoBehaviour:
   myLimbPrefabLeft: {fileID: 6003441762512763362, guid: 88ac66f6649bb554689d23fdc1936254, type: 3}
   myLimbPrefabRight: {fileID: 8131676254102091173}
   myTurretPrefab: Turret_Laser
+  smoke: {fileID: 1336392647266280248, guid: ae6da12d034fa354db356e4434874796, type: 3}
+  healthBar: {fileID: 0}
   health: 50
   maxHealth: 50
   isBroken: 0
   isDead: 0
+  healTimer: 3
+  healAmount: 10
   shootPosition: {fileID: 5603613980060749581}
   rotatePoint: {fileID: 5603613980060749581}
   damage: 1

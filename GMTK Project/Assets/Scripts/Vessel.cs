@@ -44,7 +44,7 @@ public class Vessel : MonoBehaviour
         {
             Instantiate(enemyInstance, goonLocation.position, Quaternion.identity);
             goonCount++;
-            VesselManager.inst.goonsRemaining++;
+            if (VesselManager.inst) VesselManager.inst.goonsRemaining++;
         }
 
         if (goonCount == maxGoonCount)
