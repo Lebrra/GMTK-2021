@@ -81,6 +81,6 @@ public class RobotLaser : RobotAttack
     protected override void PlaySound()
     {
         if (isTurret) GetComponent<AudioSource>().Play();
-        else AudioManager.inst.SniperTurretSound();
+        else AudioManager.inst?.SniperTurretSound();
     }
 }

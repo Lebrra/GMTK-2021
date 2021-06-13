@@ -55,7 +55,7 @@ public class PlayerLimbFinder : MonoBehaviour
         RobotAttack turretChoice = null;
         foreach(RobotAttack turret in nearbyLimbs)
         {
-            if (!turret.isBroken)   // and !isDead?
+            if (!turret.isBroken && !turret.isDead)   // and !isDead?
             {
                 //select this turret
                 turretChoice = turret;

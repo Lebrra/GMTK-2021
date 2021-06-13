@@ -370,9 +370,9 @@ MonoBehaviour:
   healAmount: 10
   shootPosition: {fileID: 2337540270042757997}
   rotatePoint: {fileID: 2941000582301482914}
-  damage: 1
-  range: 2.74
-  projectileRange: 2
+  damage: 3
+  range: 6
+  projectileRange: 7
   cooldown: 0.5
   spreadCount: 7
   canPierce: 1

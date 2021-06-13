@@ -684,6 +684,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1950975339, guid: 6f8d918ac715b7648b777611647ff625, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 2117674830}
+    - target: {fileID: 1950975339, guid: 6f8d918ac715b7648b777611647ff625, type: 3}
+      propertyPath: contructionTimer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 666201430637029522, guid: 6f8d918ac715b7648b777611647ff625, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1579,7 +1587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608805, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608814, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_RootOrder
@@ -1765,6 +1773,17 @@ MonoBehaviour:
   activeTarget: {fileID: 0}
   muzzleFlash: {fileID: 0}
   hitFlash: {fileID: 0}
+--- !u!114 &2117674830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3893291656813672935, guid: 0a9dd18ebd1371849b98fb778b28b020, type: 3}
+  m_PrefabInstance: {fileID: 3893291655171700492}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7d1448104c4564bb8a461d0b6a639d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2306681513264294789
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
     [Tooltip("The layers I can see.")]
     public LayerMask sightLayer;
     public List<Transform> thingsInSight = new List<Transform>();
+    public GameObject slimeParticle;
+
     Animator anim;
 
     AudioSource audioSource;
@@ -179,7 +181,8 @@ public class EnemyMovement : MonoBehaviour
         if (target.GetComponent<RobotAttack>() && !target.GetComponent<RobotAttack>().isDead)
         {
             //Add enemy attack sfx here
-            anim.SetTrigger("Attack");
+            //anim.SetTrigger("Attack");
+            Instantiate(slimeParticle, transform.position, Quaternion.identity);
             audioSource.Play();
             target.GetComponent<RobotAttack>().TakeDamage(damage);
         }
@@ -188,7 +191,8 @@ public class EnemyMovement : MonoBehaviour
         else if (target.GetComponent<HubReference>())
         {
             //Add enemy attack sfx here
-            anim.SetTrigger("Attack");
+            //anim.SetTrigger("Attack");
+            Instantiate(slimeParticle, transform.position, Quaternion.identity);
             audioSource.Play();
             target.GetComponent<HubReference>().TakeDamage(damage);
         }

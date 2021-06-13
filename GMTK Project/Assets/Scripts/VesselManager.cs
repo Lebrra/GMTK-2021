@@ -17,6 +17,10 @@ public class VesselManager : MonoBehaviour
     public float timeBtwnRounds = 20f;
     public float gameStartTime = 30f;
 
+    //AHHHHHHHH
+    //float fallBackTime = 100;
+    //float fallBackTimeSetter = 100;
+
     int roundNum = 1;
     int vesselCount;
     int maxVessels = 3;
@@ -37,6 +41,7 @@ public class VesselManager : MonoBehaviour
 
     void Start()
     {
+        //fallBackTime = fallBackTimeSetter;
         Invoke("StartTheGame", gameStartTime);
     }
 
@@ -47,6 +52,8 @@ public class VesselManager : MonoBehaviour
 
     void Update()
     {
+        //fallBackTime -= Time.deltaTime;
+
         /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -56,6 +63,7 @@ public class VesselManager : MonoBehaviour
         if (goonsRemaining == 0 && vesselCount == maxVessels)
         {
             Debug.Log("Round Over.");
+            //fallBackTime = fallBackTimeSetter;
             AllGoonsDead();
         }
 
@@ -98,6 +106,7 @@ public class VesselManager : MonoBehaviour
 
     public void StartRound()
     {
+        AudioManager.inst.NoMoreChillVibes();
         AudioManager.inst.PlayIntroSong();
         StartCoroutine("VesselApproaching");
         roundState = true;
