@@ -35,22 +35,16 @@ public class RobotLaser : RobotAttack
                 }
             }
         }
-        StartCoroutine(ResetAttack());
+        StartCoroutine(ResetAttack(cooldown));
     }
 
     IEnumerator LaserVisual()
     {
-        laser?.SetActive(true);
+        if (laser) laser?.SetActive(true);
 
         yield return new WaitForSeconds(cooldown / 3F);
 
-        laser?.SetActive(false);
-    }
-
-    public override void SetLimb()
-    {
-        laser = null;
-        StartCoroutine(FindEnemies());
+        if (!isDead) laser?.SetActive(false);
     }
 
     protected override IEnumerator HitVisual(Vector3 hitPoint)
@@ -62,5 +56,24 @@ public class RobotLaser : RobotAttack
             GameObject effect = Instantiate(hitFlash, hitPoint, rotatePoint.rotation);
             StartCoroutine(effect.GetComponent<ParticleTimer>().LifeSpan(0.6F));
         }
+    }
+
+    protected override IEnumerator Destroying()
+    {
+        if (laser)
+        {
+            StopCoroutine("LaserVisual");
+            Destroy(laser);
+        }
+
+        yield return new WaitForSeconds(0.05F);
+
+        foreach (var target in FindObjectsOfType<EnemyMovement>())
+        {
+            //if (target.GetComponent<EnemyMovement>().thingsInSight.Contains(transform)) target.GetComponent<EnemyMovement>().thingsInSight.Remove(transform);
+            // remove enemy target for each nearby enemy
+            target?.UpdateDestination(transform);
+        }
+        Destroy(gameObject);
     }
 }

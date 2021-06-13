@@ -1117,8 +1117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLeg: 0
   isTurret: 1
-  myLimbPrefabLeft: {fileID: 4013277151911588731, guid: 6a4faa60173c6f04694ebff03403e05f, type: 3}
-  myLimbPrefabRight: {fileID: 3627497717003680133, guid: 325005c92465cac40a677bf34e1adac2, type: 3}
+  myLimbPrefabLeft: {fileID: 6003441762512763362, guid: 88ac66f6649bb554689d23fdc1936254, type: 3}
+  myLimbPrefabRight: {fileID: 8131676254102091173, guid: 8b4f945469f76c14ba50199aaa9f443b, type: 3}
   myTurretPrefab: Turret_Laser
   health: 50
   maxHealth: 50

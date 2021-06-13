@@ -36,12 +36,6 @@ public class RobotFlamethrower : RobotAttack
                 }
             }
         }
-        StartCoroutine(ResetAttack());
-    }
-
-    public override void SetLimb()
-    {
-        flameThrower = null;
-        StartCoroutine(FindEnemies());
+        StartCoroutine(ResetAttack(cooldown));
     }
 }
