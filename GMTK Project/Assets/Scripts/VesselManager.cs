@@ -23,7 +23,7 @@ public class VesselManager : MonoBehaviour
 
     void Start()
     {
-        //Invoke("StartTheGame", 30f);
+        Invoke("StartTheGame", gameStartTime);
     }
 
     public void StartTheGame()

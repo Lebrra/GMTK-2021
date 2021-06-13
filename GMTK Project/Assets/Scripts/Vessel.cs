@@ -12,12 +12,14 @@ public class Vessel : MonoBehaviour
     public float holdTime = 3f;
     public int maxGoonCount = 5;
     int goonCount = 0;
+    Rigidbody rb;
 
     public bool spawning = false;
     public bool canSpawn = false;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         canSpawn = true;
         Invoke("StartSpawning", holdTime);
     }
@@ -25,6 +27,11 @@ public class Vessel : MonoBehaviour
     private void Update()
     {
         //if (canSpawn && !spawning) StartSpawning();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddForce(transform.up * -30);
     }
 
     public void DeployTheGoons()
