@@ -70,6 +70,9 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     public void SetTurret(int currentHealth, string prefabRef)
     {
+        attacking = true;
+        StartCoroutine(ResetAttack(0.5F));
+
         health = currentHealth;
         isTurret = true;
         myTurretPrefab = prefabRef;
@@ -80,7 +83,12 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     public virtual void SetLimb()
     {
-        if (gameObject.activeInHierarchy) StartCoroutine(FindEnemies());
+        attacking = true;
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(FindEnemies());
+            StartCoroutine(ResetAttack(0.5F));
+        }
     }
 
     public virtual void Attack()
@@ -111,12 +119,12 @@ public class RobotAttack : MonoBehaviour, IHealth
                 }
             }
         }
-        StartCoroutine(ResetAttack());
+        StartCoroutine(ResetAttack(cooldown));
     }
 
-    protected IEnumerator ResetAttack()
+    protected IEnumerator ResetAttack(float time)
     {
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(time);
         attacking = false;
     }
 
@@ -129,7 +137,7 @@ public class RobotAttack : MonoBehaviour, IHealth
         direction = new Vector3(-direction.normalized.x, -0.05F, -direction.normalized.z);
         //direction = new Vector3(-direction.normalized.x, -direction.normalized.y, -direction.normalized.z);
 
-        if (isTurret && rotatePoint != transform && angleOffset == 0)
+        if (/*isTurret && */rotatePoint != transform && angleOffset == 0)
         {
             rotatePoint.rotation = Quaternion.LookRotation(direction);
         }
@@ -194,11 +202,12 @@ public class RobotAttack : MonoBehaviour, IHealth
                     // is this check needed? if its not in the list it should be removed right?
                     //if (Vector3.Distance(EnemiesList[i].transform.position, transform.position) > range) // or if enemy is dead
                     //{
-                        TargetList.RemoveAt(i);
+                    TargetList.RemoveAt(i);
                     //}
                 }
             }
         }
+        else activeTarget = null;
 
         if (activeTarget && !TargetList.Contains(activeTarget.GetComponent<Collider>()))
         {
@@ -249,15 +258,15 @@ public class RobotAttack : MonoBehaviour, IHealth
         StartCoroutine(Destroying());
     }
 
-    protected IEnumerator Destroying()
+    protected virtual IEnumerator Destroying()
     {
         yield return new WaitForSeconds(0.05F);
 
-        foreach(var target in TargetList)
+        foreach(var target in FindObjectsOfType<EnemyMovement>())
         {
             //if (target.GetComponent<EnemyMovement>().thingsInSight.Contains(transform)) target.GetComponent<EnemyMovement>().thingsInSight.Remove(transform);
             // remove enemy target for each nearby enemy
-            target.GetComponent<EnemyMovement>()?.UpdateDestination(transform);
+            target?.UpdateDestination(transform);
         }
         Destroy(gameObject);
     }

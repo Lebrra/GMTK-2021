@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 2107181161870264979}
   - component: {fileID: 2105667300925037147}
   - component: {fileID: 2192002366233500649}
+  - component: {fileID: 3860867032261716949}
   m_Layer: 0
   m_Name: FlamethrowerLocal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2301997634968159427
 Transform:
   m_ObjectHideFlags: 0
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2303644916256942625}
-  m_LocalRotation: {x: -0.7188567, y: 0.5675538, z: 0.2487391, w: -0.31505018}
+  m_LocalRotation: {x: -0.7188545, y: 0.5675542, z: 0.2487417, w: -0.31505254}
   m_LocalPosition: {x: 1.92, y: -7.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2302360577568134553}
   m_Father: {fileID: 0}
@@ -4687,6 +4688,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!95 &3860867032261716949
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2303644916256942625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4163e05b0b2edd439e30cf224bfa829, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2305819436931194319
 GameObject:
   m_ObjectHideFlags: 0
