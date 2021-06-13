@@ -47,6 +47,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1333619bf97e6954fbeb9d1b5ebeb31b, type: 3}
   - {fileID: 8300000, guid: 9de6b2e4cccc3bd4c8889fe0884f6085, type: 3}
   - {fileID: 8300000, guid: bd4938a967ce5314b8ac0b85ac6012e2, type: 3}
+  - {fileID: 8300000, guid: 09d11d67ae9fb5641baa16fedcf3b5eb, type: 3}
   sfxList:
   - {fileID: 8300000, guid: 0781b64cc255e3d45a804f87f4d9caef, type: 3}
   - {fileID: 8300000, guid: 5d5b5e4327746604eaa33256f5b5da90, type: 3}
@@ -55,6 +56,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab9a81ceb07457b438800447823eee2d, type: 3}
   - {fileID: 8300000, guid: 2820f19b74961214face24d74f2ccce8, type: 3}
   - {fileID: 8300000, guid: d5c9eb3cf8808204dab4c0bab77c76ce, type: 3}
+  - {fileID: 8300000, guid: 986d2f600c0fa89419bf9e622cf0d783, type: 3}
+  - {fileID: 8300000, guid: bb359b3f23d0a90488b7c0d80f342e0d, type: 3}
+  - {fileID: 8300000, guid: ed20a951a91f4c24abe8e22a1db576a2, type: 3}
+  - {fileID: 8300000, guid: cd147ba74b636e240be5975892b7de92, type: 3}
   songSource: {fileID: 0}
   sfxSource: {fileID: 0}
+  walkSfxSource: {fileID: 0}
   currSong: 0
