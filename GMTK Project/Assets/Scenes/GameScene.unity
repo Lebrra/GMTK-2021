@@ -40713,7 +40713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7967367063353637601, guid: bf5061495dccace41992fac2673824ca, type: 3}
       propertyPath: m_SoftZoneWidth
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7967367063353637601, guid: bf5061495dccace41992fac2673824ca, type: 3}
       propertyPath: m_DeadZoneHeight
@@ -40721,7 +40721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7967367063353637601, guid: bf5061495dccace41992fac2673824ca, type: 3}
       propertyPath: m_SoftZoneHeight
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7967367063902406344, guid: bf5061495dccace41992fac2673824ca, type: 3}
       propertyPath: m_Follow
@@ -40779,7 +40779,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.051
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7967367063353637600, guid: bf5061495dccace41992fac2673824ca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf5061495dccace41992fac2673824ca, type: 3}
 --- !u!1 &1410183219
 GameObject:

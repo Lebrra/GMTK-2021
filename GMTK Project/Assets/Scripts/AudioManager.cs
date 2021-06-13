@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> sfxList;
     public AudioSource songSource;
     public AudioSource sfxSource;
+    public AudioSource walkSfxSource;
     private float startVol;
     public int currSong = 0;
 
@@ -116,5 +117,39 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.clip = sfxList[5];
         sfxSource.Play();
+    }
+
+    public void RoundOverSound()
+    {
+        sfxSource.clip = sfxList[6];
+        sfxSource.Play();
+    }
+
+    public void HubAttackSound()
+    {
+        sfxSource.clip = sfxList[7];
+        sfxSource.Play();
+    }
+
+    public void LimbNotReadySound()
+    {
+        sfxSource.clip = sfxList[8];
+        sfxSource.Play();
+    }
+
+    public void PauseSound()
+    {
+        sfxSource.clip = sfxList[9];
+        sfxSource.Play();
+    }
+    public void WalkingSound()
+    {
+        walkSfxSource.clip = sfxList[10];
+        walkSfxSource.Play();
+    }
+
+    public void ChillVibes()
+    {
+        StartCoroutine(FadeSongIn(1f, .4f, 3));
     }
 }

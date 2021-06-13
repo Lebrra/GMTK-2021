@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1336392647266280245}
   - component: {fileID: 1336392647266280250}
   - component: {fileID: 1336392647266280251}
+  - component: {fileID: 3360183083463394543}
   m_Layer: 0
   m_Name: ElectricArmPuff
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336392647266280248}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 4.36, y: -0, z: 5.23}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 1336392647530535543}
   m_Father: {fileID: 0}
@@ -4704,6 +4705,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3360183083463394543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336392647266280248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f868818be0b1074692e25f408c57ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1336392647530535540
 GameObject:
   m_ObjectHideFlags: 0
