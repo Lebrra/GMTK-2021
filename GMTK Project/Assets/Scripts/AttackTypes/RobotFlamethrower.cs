@@ -18,6 +18,7 @@ public class RobotFlamethrower : RobotAttack
         attacking = true;
 
         //MuzzleFlash(shootPosition.position);
+        PlaySound();
 
         if (isAOE) ShootSphereCast();
         else
@@ -37,5 +38,11 @@ public class RobotFlamethrower : RobotAttack
             }
         }
         StartCoroutine(ResetAttack(cooldown));
+    }
+
+    protected override void PlaySound()
+    {
+        if (isTurret) GetComponent<AudioSource>().Play();
+        else AudioManager.inst.FlameTurretSound();
     }
 }
