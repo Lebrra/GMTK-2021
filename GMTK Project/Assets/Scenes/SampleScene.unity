@@ -372,10 +372,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6899764389205515233, guid: a25d2dd157c7e134d807fbff684fb657, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 963194227}
+    - target: {fileID: 6899764387949800156, guid: a25d2dd157c7e134d807fbff684fb657, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899764387949800156, guid: a25d2dd157c7e134d807fbff684fb657, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899764387949800156, guid: a25d2dd157c7e134d807fbff684fb657, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899764387949800156, guid: a25d2dd157c7e134d807fbff684fb657, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6899764389205515234, guid: a25d2dd157c7e134d807fbff684fb657, type: 3}
       propertyPath: m_Pivot.x
       value: 0
