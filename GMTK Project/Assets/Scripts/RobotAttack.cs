@@ -275,7 +275,7 @@ public class RobotAttack : MonoBehaviour, IHealth
         if (hitFlash)
         {
             GameObject effect = Instantiate(hitFlash, hitPoint, rotatePoint.rotation);
-            StartCoroutine(DestroyObject(effect, 0.6F));
+            StartCoroutine(effect.GetComponent<ParticleTimer>().LifeSpan(0.6F));
         }
     }
 
@@ -284,13 +284,7 @@ public class RobotAttack : MonoBehaviour, IHealth
         if (muzzleFlash)
         {
             GameObject effect = Instantiate(muzzleFlash, shotPos, rotatePoint.rotation);
-            StartCoroutine(DestroyObject(effect, 0.6F));
+            StartCoroutine(effect.GetComponent<ParticleTimer>().LifeSpan(0.6F));
         }
-    }
-
-    protected IEnumerator DestroyObject(GameObject obj, float time)
-    {
-        yield return new WaitForSeconds(time);
-        Destroy(obj);
     }
 }
