@@ -98,6 +98,7 @@ public class VesselManager : MonoBehaviour
 
     public void StartRound()
     {
+        AudioManager.inst.NoMoreChillVibes();
         AudioManager.inst.PlayIntroSong();
         StartCoroutine("VesselApproaching");
         roundState = true;

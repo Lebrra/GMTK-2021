@@ -152,4 +152,9 @@ public class AudioManager : MonoBehaviour
     {
         StartCoroutine(FadeSongIn(1f, .4f, 3));
     }
+
+    public void NoMoreChillVibes()
+    {
+        StartCoroutine(FadeSongOut(1f, 0f, 3));
+    }
 }

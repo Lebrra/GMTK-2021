@@ -1721,6 +1721,10 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7434990892936400552, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
+      propertyPath: songList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434990892936400552, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
       propertyPath: sfxList.Array.data[7]
       value: 
       objectReference: {fileID: 8300000, guid: 986d2f600c0fa89419bf9e622cf0d783, type: 3}
@@ -1736,6 +1740,10 @@ PrefabInstance:
       propertyPath: sfxList.Array.data[10]
       value: 
       objectReference: {fileID: 8300000, guid: cd147ba74b636e240be5975892b7de92, type: 3}
+    - target: {fileID: 7434990892936400552, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
+      propertyPath: songList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 09d11d67ae9fb5641baa16fedcf3b5eb, type: 3}
     - target: {fileID: 7434990892936400553, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
       propertyPath: m_RootOrder
       value: 5
