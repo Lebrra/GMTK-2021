@@ -117,4 +117,10 @@ public class AudioManager : MonoBehaviour
         sfxSource.clip = sfxList[5];
         sfxSource.Play();
     }
+
+    public void RoundOverSound()
+    {
+        sfxSource.clip = sfxList[6];
+        sfxSource.Play();
+    }
 }
