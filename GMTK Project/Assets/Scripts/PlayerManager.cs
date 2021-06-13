@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public bool active = true;
+    bool delayDeploy = false;
 
     PlayerMovement pm;
     PlayerLimbFinder plf;
@@ -21,6 +22,10 @@ public class PlayerManager : MonoBehaviour
     public int activeLimb = 0;
     bool scrollDelayer = false;
 
+    [Header("Pause")]
+    public bool paused = false;
+    public GameObject pauseScreen;
+
     void Start()
     {
         pm = GetComponent<PlayerMovement>();
@@ -36,7 +41,7 @@ public class PlayerManager : MonoBehaviour
         {
             pm.Move(rb, anim, transform);
 
-            if(activeLimbCount > 1 && !scrollDelayer)
+            /*if(activeLimbCount > 1 && !scrollDelayer)
             {
                 if (Input.GetAxisRaw("Mouse ScrollWheel") + Input.GetAxisRaw("ScrollAlt") > 0)
                 {
@@ -48,18 +53,29 @@ public class PlayerManager : MonoBehaviour
                     // decrement active limb
                     DecrementActiveLimb();
                 }
+            }*/
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                paused = !paused;
+                pauseScreen?.SetActive(paused);
+                if (paused) Time.timeScale = 0;
+                else Time.timeScale = 1;
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (!delayDeploy)
             {
-                DetatchLimb();
-            }
+                if (Input.GetMouseButtonDown(0))
+                {
+                    DetatchLimb();
+                }
 
-            if (Input.GetMouseButtonUp(1))
-            {
-                // check if attach is available
-                // attach
-                if (activeLimbCount < 2) AttachLimb(plf.SelectTurret());
+                if (Input.GetMouseButtonUp(1))
+                {
+                    // check if attach is available
+                    // attach
+                    if (activeLimbCount < 2) AttachLimb(plf.SelectTurret());
+                }
             }
         }
     }
@@ -120,6 +136,7 @@ public class PlayerManager : MonoBehaviour
                 AudioManager.inst?.TurretPickupSound();
                 SetLimbComponent(slot, attack);
                 plf.RemoveTurret(attack);
+                StartCooldown();
 
                 pm.speed -= 2F;
                 anim.speed /= 1.2F;
@@ -184,6 +201,8 @@ public class PlayerManager : MonoBehaviour
 
             pm.speed += 2F;
             anim.speed *= 1.2F;
+
+            StartCooldown();
         }
         else Debug.LogWarning("cannot detatch limb unfound");
 
@@ -254,5 +273,17 @@ public class PlayerManager : MonoBehaviour
             case 3: return "pCube39";
             default: return "";
         }
+    }
+
+    void StartCooldown()
+    {
+        delayDeploy = true;
+        StartCoroutine(ResetDeployDelay());
+    }
+
+    IEnumerator ResetDeployDelay()
+    {
+        yield return new WaitForSeconds(0.6F);
+        delayDeploy = false;
     }
 }
