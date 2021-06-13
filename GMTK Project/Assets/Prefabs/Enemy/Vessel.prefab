@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1817490332759608803}
   - component: {fileID: 1817490332759608802}
   - component: {fileID: 7171574732985393293}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vessel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,9 +190,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vessel Model
       objectReference: {fileID: 0}
+    - target: {fileID: 5477284364409562171, guid: 14d182f5693557645a4a781d34e62583, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649720600368357961, guid: 14d182f5693557645a4a781d34e62583, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6649720600368357961, guid: 14d182f5693557645a4a781d34e62583, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7102942319415473469, guid: 14d182f5693557645a4a781d34e62583, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137602023401710447, guid: 14d182f5693557645a4a781d34e62583, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9137602023401710447, guid: 14d182f5693557645a4a781d34e62583, type: 3}
       propertyPath: m_IsActive
