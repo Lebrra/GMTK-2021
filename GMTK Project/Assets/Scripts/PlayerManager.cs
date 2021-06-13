@@ -59,7 +59,7 @@ public class PlayerManager : MonoBehaviour
             {
                 // check if attach is available
                 // attach
-                AttachLimb(plf.SelectTurret());
+                if (activeLimbCount < 2) AttachLimb(plf.SelectTurret());
             }
         }
     }

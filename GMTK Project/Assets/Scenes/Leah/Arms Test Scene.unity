@@ -1040,6 +1040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupRange: 2
   nearbyLimbs: []
+  hub: {fileID: 0}
   turretLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1381,6 +1382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupRange: 2
   nearbyLimbs: []
+  hub: {fileID: 0}
   turretLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -1563,6 +1565,10 @@ PrefabInstance:
     - target: {fileID: 1817490332759608805, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_Name
       value: Vessel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817490332759608805, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608814, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_RootOrder
