@@ -60,7 +60,7 @@ public class VesselManager : MonoBehaviour
             StartCoroutine("StartRound");
         }
         */
-        if ((goonsRemaining == 0 && vesselCount == maxVessels) || fallBackTime <= 0)
+        if (goonsRemaining == 0 && vesselCount == maxVessels)
         {
             Debug.Log("Round Over.");
             //fallBackTime = fallBackTimeSetter;
