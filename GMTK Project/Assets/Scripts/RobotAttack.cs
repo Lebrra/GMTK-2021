@@ -10,7 +10,7 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     public GameObject myLimbPrefabLeft;
     public GameObject myLimbPrefabRight;
-    public GameObject myTurretPrefab;
+    public string myTurretPrefab;
 
     [Header("Health")]
     public int health;
@@ -43,6 +43,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     protected GameObject activeTarget;
 
     protected bool attacking = false;
+    protected bool lookingForTargets = false;
 
     [Header("Effects")]
     public GameObject muzzleFlash;
@@ -58,12 +59,16 @@ public class RobotAttack : MonoBehaviour, IHealth
     {
         if (!attacking)
         {
-            /*if (isTurret)*/ Attack();
-            //else if (Input.GetKeyDown(KeyCode.Space)) Attack();
+            if(gameObject.activeInHierarchy && !lookingForTargets)
+            {
+                lookingForTargets = true;
+                StartCoroutine(FindEnemies());
+            } 
+            Attack();
         }
     }
 
-    public void SetTurret(int currentHealth, GameObject prefabRef)
+    public void SetTurret(int currentHealth, string prefabRef)
     {
         health = currentHealth;
         isTurret = true;
@@ -75,7 +80,7 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     public virtual void SetLimb()
     {
-        StartCoroutine(FindEnemies());
+        if (gameObject.activeInHierarchy) StartCoroutine(FindEnemies());
     }
 
     public virtual void Attack()
@@ -168,6 +173,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     protected IEnumerator FindEnemies()
     {
         // find all enemies within range distance, if not in list then add them         layer 6 is enemies
+        if (!lookingForTargets) lookingForTargets = true;
 
         List<Collider> withinRange = new List<Collider>();
 
@@ -245,14 +251,15 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     protected IEnumerator Destroying()
     {
-        yield return new WaitForSeconds(0.31F);
+        yield return new WaitForSeconds(0.05F);
 
         foreach(var target in TargetList)
         {
             //if (target.GetComponent<EnemyMovement>().thingsInSight.Contains(transform)) target.GetComponent<EnemyMovement>().thingsInSight.Remove(transform);
             // remove enemy target for each nearby enemy
-            target.GetComponent<EnemyMovement>().UpdateDestination(transform);
+            target.GetComponent<EnemyMovement>()?.UpdateDestination(transform);
         }
+        Destroy(gameObject);
     }
 
     protected virtual void DoVisual(Vector3 shotPos, Vector3 direction, float distance, float duration)
