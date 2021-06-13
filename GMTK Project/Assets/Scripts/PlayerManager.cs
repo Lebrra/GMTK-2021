@@ -66,6 +66,8 @@ public class PlayerManager : MonoBehaviour
 
     public void AttachLimb(RobotAttack attack)
     {
+        //Debug.Log("My prefab:" + attack.myTurretPrefab.name, attack.gameObject);
+
         if (activeLimbCount == 4)
         {
             Debug.LogWarning("limbs full, cannot add more");
@@ -162,7 +164,7 @@ public class PlayerManager : MonoBehaviour
         if (activeLimb > -1 && activeLimb < 4)
         {
             //create new turret instance
-            GameObject newTurret = Instantiate(Resources.Load("TurretPrefabs/" + limbs[activeLimb].myTurretPrefab.name) as GameObject, transform.position + transform.forward.normalized * 2F, transform.rotation);
+            GameObject newTurret = Instantiate(Resources.Load("TurretPrefabs/" + limbs[activeLimb].myTurretPrefab) as GameObject, transform.position + transform.forward.normalized * 2F, transform.rotation);
             newTurret.GetComponent<RobotAttack>().SetTurret(limbs[activeLimb].health, limbs[activeLimb].myTurretPrefab);
 
             //remove limb
