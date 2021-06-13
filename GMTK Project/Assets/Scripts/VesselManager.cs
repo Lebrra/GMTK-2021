@@ -77,7 +77,7 @@ public class VesselManager : MonoBehaviour
                 maxVessels = 12;
                 return;
             default:
-                maxVessels = 12;
+                maxVessels = 7 + roundNum;
                 return;
         }
     }
@@ -126,6 +126,7 @@ public class VesselManager : MonoBehaviour
         roundState = false;
         vesselCount = 0;
         roundNum++;
+        AudioManager.inst.RoundOverSound();
         Invoke("StartRound", timeBtwnRounds);
     }
 

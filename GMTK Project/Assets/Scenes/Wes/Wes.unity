@@ -1578,9 +1578,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1817490332759608803, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608805, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_Name
       value: Vessel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817490332759608805, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608814, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_RootOrder
@@ -1708,6 +1716,26 @@ PrefabInstance:
       propertyPath: songSource
       value: 
       objectReference: {fileID: 1491548880}
+    - target: {fileID: 7434990892936400552, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
+      propertyPath: sfxList.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434990892936400552, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
+      propertyPath: sfxList.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 986d2f600c0fa89419bf9e622cf0d783, type: 3}
+    - target: {fileID: 7434990892936400552, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
+      propertyPath: sfxList.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: bb359b3f23d0a90488b7c0d80f342e0d, type: 3}
+    - target: {fileID: 7434990892936400552, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
+      propertyPath: sfxList.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: ed20a951a91f4c24abe8e22a1db576a2, type: 3}
+    - target: {fileID: 7434990892936400552, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
+      propertyPath: sfxList.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: cd147ba74b636e240be5975892b7de92, type: 3}
     - target: {fileID: 7434990892936400553, guid: 2f576460eccf22a499f3a183785ee6a3, type: 3}
       propertyPath: m_RootOrder
       value: 5
