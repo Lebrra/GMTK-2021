@@ -117,6 +117,7 @@ public class PlayerManager : MonoBehaviour
             else
             {
                 // success, add component and remove turret
+                AudioManager.inst?.TurretPickupSound();
                 SetLimbComponent(slot, attack);
                 plf.RemoveTurret(attack);
 

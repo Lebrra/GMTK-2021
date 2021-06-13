@@ -56,12 +56,6 @@ public class RobotAttack : MonoBehaviour, IHealth
     public GameObject muzzleFlash;
     public GameObject hitFlash;
 
-    protected void Start()
-    {
-        //TargetList = new List<Collider>();
-        //StartCoroutine(FindEnemies());
-    }
-
     protected void Update()
     {
         if (!attacking && !isBroken)
@@ -89,6 +83,8 @@ public class RobotAttack : MonoBehaviour, IHealth
         barRef = healthBar.GetComponent<HealthBar3D>();
         if (health == maxHealth) healthBar.SetActive(false);
         else barRef?.SetHealth((float)health / (float)maxHealth);
+
+        AudioManager.inst?.DropTurretSound();
 
         TargetList = new List<Collider>();
         StartCoroutine(FindEnemies());
@@ -130,6 +126,7 @@ public class RobotAttack : MonoBehaviour, IHealth
         attacking = true;
 
         MuzzleFlash(shootPosition.position);
+        PlaySound();
 
         if (isAOE) ShootSphereCast();
         else
@@ -280,6 +277,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     {
         if (isDead) return;
 
+        AudioManager.inst?.FixTurretSound();
         health += amount;
         if (health > maxHealth) health = maxHealth;
         if (isTurret) barRef?.SetHealth((float)health / (float)maxHealth);
@@ -333,5 +331,11 @@ public class RobotAttack : MonoBehaviour, IHealth
             GameObject effect = Instantiate(muzzleFlash, shotPos, rotatePoint.rotation);
             StartCoroutine(effect.GetComponent<ParticleTimer>().LifeSpan(0.6F));
         }
+    }
+
+    protected virtual void PlaySound()
+    {
+        if (isTurret) /*play turret sound*/;
+        else /*play arm sound*/;
     }
 }
