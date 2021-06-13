@@ -7,11 +7,10 @@ public class AudioManager : MonoBehaviour
     public static AudioManager inst;
 
     public List<AudioClip> songList;
-    public List<AudioClip> staticList;
     public AudioSource songSource;
     public AudioSource sfxSource;
     private float startVol;
-    public int currSong = 1;
+    public int currSong = 0;
 
     private void Awake()
     {
@@ -30,7 +29,7 @@ public class AudioManager : MonoBehaviour
         inst = this;
         startVol = songSource.volume;
         songSource.clip = songList[1];
-        currSong = 1;
+        currSong = 0;
         songSource.Play();
     }
 
@@ -63,5 +62,11 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
         yield break;
+    }
+
+    public void PlayMainSong()
+    {
+        StartCoroutine(FadeSongOut(1f, 0, 0));
+        currSong = 0;
     }
 }

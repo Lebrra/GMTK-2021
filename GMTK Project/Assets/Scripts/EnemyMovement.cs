@@ -25,11 +25,6 @@ public class EnemyMovement : MonoBehaviour
     public LayerMask sightLayer;
     public List<Transform> thingsInSight = new List<Transform>();
 
-    private void Awake()
-    {
-        //StartCoroutine("FindTargets", 0.2f);
-    }
-
     void Start()
     {
         FindVisableTargets();
@@ -157,12 +152,18 @@ public class EnemyMovement : MonoBehaviour
         if (attacking) return;
 
         //Attacking for towers
-        if(target.GetComponent<RobotAttack>() && !target.GetComponent<RobotAttack>().isDead)
+        if (target.GetComponent<RobotAttack>() && !target.GetComponent<RobotAttack>().isDead)
+        {
+            //Add enemy attack sfx here
             target.GetComponent<RobotAttack>().TakeDamage(damage);
+        }
 
         //Attacking for hub
-        else if(target.GetComponent<HubReference>())
+        else if (target.GetComponent<HubReference>())
+        {
+            //Add enemy attack sfx here
             target.GetComponent<HubReference>().TakeDamage(damage);
+        }
 
         attacking = true;
 
