@@ -230,8 +230,8 @@ MonoBehaviour:
   maxHealth: 50
   isBroken: 0
   isDead: 0
-  healTimer: 3
-  healAmount: 10
+  healTimer: 5
+  healAmount: 8
   shootPosition: {fileID: 7194546705181956581}
   rotatePoint: {fileID: 0}
   damage: 20
