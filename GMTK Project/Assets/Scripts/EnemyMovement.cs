@@ -86,13 +86,12 @@ public class EnemyMovement : MonoBehaviour
                 {
                     if (target == HubReference.reference.transform)
                     {
-                        print("PLS");
                         destination = target.position;
                         agent.destination = destination;
 
                         if (Vector3.Distance(transform.position, destination) <= attackRange + 4)
                         {
-                            print("At the hub");
+                            //print("At the hub");
                             targetMet = true;
                         }
                     }
