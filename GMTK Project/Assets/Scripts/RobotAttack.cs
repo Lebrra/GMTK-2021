@@ -335,7 +335,7 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     protected virtual void PlaySound()
     {
-        if (isTurret) /*play turret sound*/;
-        else /*play arm sound*/;
+        if (isTurret) GetComponent<AudioSource>().Play();
+        else AudioManager.inst.BasicTurretSound();
     }
 }
