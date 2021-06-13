@@ -28,9 +28,8 @@ public class AudioManager : MonoBehaviour
     {
         inst = this;
         startVol = songSource.volume;
-        songSource.clip = songList[1];
-        currSong = 0;
-        songSource.Play();
+        songSource.clip = songList[0];
+        //songSource.Play();
     }
 
     public IEnumerator FadeSongOut(float duration, float targetVolume, int song)
@@ -44,7 +43,7 @@ public class AudioManager : MonoBehaviour
             songSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
             yield return null;
         }
-        StartCoroutine(FadeSongIn(1f, start, song));
+        //StartCoroutine(FadeSongIn(1f, start, song));
         yield break;
     }
 
@@ -64,9 +63,21 @@ public class AudioManager : MonoBehaviour
         yield break;
     }
 
-    public void PlayMainSong()
+    public void PlayIntroSong()
     {
-        StartCoroutine(FadeSongOut(1f, 0, 0));
-        currSong = 0;
+        StartCoroutine(FadeSongIn(1f, 1f, 1));
+        Invoke("LoopingSong", 12f);
+        //currSong = 1;
+    }
+
+    public void LoopingSong()
+    {
+        songSource.clip = songList[2];
+        songSource.Play();
+    }
+
+    public void FadeOut()
+    {
+        StartCoroutine(FadeSongOut(1f, 0, 2));
     }
 }

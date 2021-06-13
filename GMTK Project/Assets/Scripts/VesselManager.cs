@@ -15,6 +15,7 @@ public class VesselManager : MonoBehaviour
     public float timeBtwnReinforcments = 10f;
 
     public float timeBtwnRounds = 20f;
+    public float gameStartTime = 30f;
 
     int roundNum = 1;
     int vesselCount;
@@ -22,7 +23,12 @@ public class VesselManager : MonoBehaviour
 
     void Start()
     {
+        //Invoke("StartTheGame", 30f);
+    }
 
+    public void StartTheGame()
+    {
+        StartCoroutine("StartRound");
     }
 
     void Update()
@@ -71,9 +77,15 @@ public class VesselManager : MonoBehaviour
 
     public void StartRound()
     {
+        AudioManager.inst.PlayIntroSong();
         StartCoroutine("VesselApproaching");
         roundState = true;
         spawning = true;
+    }
+
+    public void IShouldChangeThis()
+    {
+        AudioManager.inst.FadeOut();
     }
 
     public void StopRound()
@@ -84,6 +96,7 @@ public class VesselManager : MonoBehaviour
         roundNum++;
         vesselCount = 0;
 
+        Invoke("IShouldChangeThis", 5f);
         Invoke("StartRound", timeBtwnRounds);
     }
 
