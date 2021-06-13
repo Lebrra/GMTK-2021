@@ -961,6 +961,7 @@ GameObject:
   - component: {fileID: 1491548876}
   - component: {fileID: 1491548879}
   - component: {fileID: 1491548880}
+  - component: {fileID: 1491548881}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1080,6 +1081,102 @@ AudioSource:
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1491548881
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491548875}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1434,8 +1531,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1333619bf97e6954fbeb9d1b5ebeb31b, type: 3}
   - {fileID: 8300000, guid: 9de6b2e4cccc3bd4c8889fe0884f6085, type: 3}
   - {fileID: 8300000, guid: bd4938a967ce5314b8ac0b85ac6012e2, type: 3}
+  sfxList:
+  - {fileID: 8300000, guid: 0781b64cc255e3d45a804f87f4d9caef, type: 3}
+  - {fileID: 8300000, guid: 5d5b5e4327746604eaa33256f5b5da90, type: 3}
+  - {fileID: 8300000, guid: be7dce468fdb5784fbeafdc1c75cffd2, type: 3}
+  - {fileID: 8300000, guid: c9df4cc1c0281924ea00190408e44a85, type: 3}
+  - {fileID: 8300000, guid: ab9a81ceb07457b438800447823eee2d, type: 3}
+  - {fileID: 8300000, guid: 2820f19b74961214face24d74f2ccce8, type: 3}
   songSource: {fileID: 1491548880}
-  sfxSource: {fileID: 0}
+  sfxSource: {fileID: 1491548881}
   currSong: 0
 --- !u!4 &2138368363
 Transform:
@@ -1535,10 +1639,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vessel
       objectReference: {fileID: 0}
-    - target: {fileID: 1817490332759608805, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608814, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1553,7 +1653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608814, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 18.2
       objectReference: {fileID: 0}
     - target: {fileID: 1817490332759608814, guid: d2c688f1d3854c740837647f71a83c00, type: 3}
       propertyPath: m_LocalRotation.w

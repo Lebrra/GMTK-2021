@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager inst;
 
     public List<AudioClip> songList;
+    public List<AudioClip> sfxList;
     public AudioSource songSource;
     public AudioSource sfxSource;
     private float startVol;
@@ -65,7 +66,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayIntroSong()
     {
-        StartCoroutine(FadeSongIn(1f, 1f, 1));
+        StartCoroutine(FadeSongIn(1f, .3f, 1));
         Invoke("LoopingSong", 12f);
         //currSong = 1;
     }
@@ -79,5 +80,41 @@ public class AudioManager : MonoBehaviour
     public void FadeOut()
     {
         StartCoroutine(FadeSongOut(1f, 0, 2));
+    }
+
+    public void FixTurretSound()
+    {
+        sfxSource.clip = sfxList[0];
+        sfxSource.Play();
+    }
+
+    public void FlameTurretSound()
+    {
+        sfxSource.clip = sfxList[1];
+        sfxSource.Play();
+    }
+
+    public void BasicTurretSound()
+    {
+        sfxSource.clip = sfxList[2];
+        sfxSource.Play();
+    }
+
+    public void TurretPickupSound()
+    {
+        sfxSource.clip = sfxList[3];
+        sfxSource.Play();
+    }
+
+    public void DropTurretSound()
+    {
+        sfxSource.clip = sfxList[4];
+        sfxSource.Play();
+    }
+
+    public void SniperTurretSound()
+    {
+        sfxSource.clip = sfxList[5];
+        sfxSource.Play();
     }
 }

@@ -26,9 +26,12 @@ public class EnemyMovement : MonoBehaviour
     public List<Transform> thingsInSight = new List<Transform>();
     Animator anim;
 
+    AudioSource audioSource;
+
     void Start()
     {
         FindVisableTargets();
+        audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         myObstacle = GetComponent<NavMeshObstacle>();
         destination = agent.destination;
@@ -178,6 +181,7 @@ public class EnemyMovement : MonoBehaviour
         {
             //Add enemy attack sfx here
             anim.SetTrigger("Attack");
+            audioSource.Play();
             target.GetComponent<RobotAttack>().TakeDamage(damage);
         }
 
@@ -186,6 +190,7 @@ public class EnemyMovement : MonoBehaviour
         {
             //Add enemy attack sfx here
             anim.SetTrigger("Attack");
+            audioSource.Play();
             target.GetComponent<HubReference>().TakeDamage(damage);
         }
 
