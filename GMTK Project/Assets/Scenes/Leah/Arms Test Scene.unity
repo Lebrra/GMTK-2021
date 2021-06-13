@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1456755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +403,8 @@ MonoBehaviour:
   maxHealth: 50
   isBroken: 0
   isDead: 0
+  healTimer: 3
+  healAmount: 10
   shootPosition: {fileID: 64657391}
   rotatePoint: {fileID: 0}
   damage: 5
@@ -1097,7 +1099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1294422543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,6 +1730,8 @@ MonoBehaviour:
   maxHealth: 50
   isBroken: 0
   isDead: 0
+  healTimer: 3
+  healAmount: 10
   shootPosition: {fileID: 1994340753}
   rotatePoint: {fileID: 0}
   damage: 10

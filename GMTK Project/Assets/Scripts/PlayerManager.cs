@@ -139,7 +139,7 @@ public class PlayerManager : MonoBehaviour
 
         if (limbObjects[index].transform.childCount > 1) Destroy(limbObjects[index].transform.GetChild(1).gameObject);
 
-        System.Type type = attack.GetType();
+        /*System.Type type = attack.GetType();
         Component copy = newLimb.AddComponent(type);
         System.Reflection.FieldInfo[] fields = type.GetFields();
         foreach (System.Reflection.FieldInfo field in fields)
@@ -147,19 +147,19 @@ public class PlayerManager : MonoBehaviour
             field.SetValue(copy, field.GetValue(attack));
         }
 
-        limbs[index] = copy as RobotAttack;
+        limbs[index] = copy as RobotAttack;*/
+
+        limbs[index] = newLimb.GetComponent<RobotAttack>();
 
         // final missing elements:
-        limbs[index].myTurretPrefab = attack.myTurretPrefab;
         limbs[index].shootPosition = newLimb.GetComponentInChildren<LimbShootReference>().transform; // change to actual shoot position
-        limbs[index].isTurret = false;
 
         activeLimbCount++;
         activeLimb = index;
 
         anim.gameObject.SetActive(true);
 
-        limbs[index].SetLimb();
+        limbs[index].SetLimb(attack);
     }
 
     public void DetatchLimb()

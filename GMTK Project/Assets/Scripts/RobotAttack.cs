@@ -94,8 +94,14 @@ public class RobotAttack : MonoBehaviour, IHealth
         StartCoroutine(FindEnemies());
     }
 
-    public virtual void SetLimb()
+    public virtual void SetLimb(RobotAttack priorRef)
     {
+        myTurretPrefab = priorRef.myTurretPrefab;
+        isTurret = false;
+
+        health = priorRef.health;
+        maxHealth = priorRef.maxHealth;
+
         attacking = true;
         //if (gameObject.activeInHierarchy)
         //{
