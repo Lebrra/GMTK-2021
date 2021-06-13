@@ -127,6 +127,7 @@ public class VesselManager : MonoBehaviour
         vesselCount = 0;
         roundNum++;
         AudioManager.inst.RoundOverSound();
+        AudioManager.inst.ChillVibes();
         Invoke("StartRound", timeBtwnRounds);
     }
 
