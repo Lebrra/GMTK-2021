@@ -12,6 +12,8 @@ public class RobotAttack : MonoBehaviour, IHealth
     public GameObject myLimbPrefabRight;
     public string myTurretPrefab;
 
+    public GameObject smoke;
+
     [Header("Health")]
     public int health;
     public int maxHealth;
@@ -57,7 +59,7 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     protected void Update()
     {
-        if (!attacking)
+        if (!attacking && !isBroken)
         {
             if(gameObject.activeInHierarchy && !lookingForTargets)
             {
@@ -231,6 +233,8 @@ public class RobotAttack : MonoBehaviour, IHealth
             {
                 isBroken = true;
                 health = maxHealth;
+
+                smoke.SetActive(true);
             }
             else
             {

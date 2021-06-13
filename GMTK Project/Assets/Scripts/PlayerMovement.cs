@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    float baseSpeed;
+
     public float speed = 1;
     public float blendValue = 0.1F;
+
+    private void Start()
+    {
+        baseSpeed = speed;
+    }
 
     public void Move(Rigidbody rb, Animator anim, Transform myBody)
     {

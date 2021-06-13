@@ -119,6 +119,9 @@ public class PlayerManager : MonoBehaviour
                 // success, add component and remove turret
                 SetLimbComponent(slot, attack);
                 plf.RemoveTurret(attack);
+
+                pm.speed -= 2F;
+                anim.speed /= 1.2F;
             }
         }
     }
@@ -177,6 +180,9 @@ public class PlayerManager : MonoBehaviour
             activeLimbCount--;
             if (activeLimbCount > 0) IncrementActiveLimb();
             else activeLimb = -1;
+
+            pm.speed += 2F;
+            anim.speed *= 1.2F;
         }
         else Debug.LogWarning("cannot detatch limb unfound");
 
