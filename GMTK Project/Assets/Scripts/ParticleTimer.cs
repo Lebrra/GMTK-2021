@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class ParticleTimer : MonoBehaviour
 {
-   public IEnumerator LifeSpan(float time)
+    float liveTime = 0F;
+
+    private void Update()
+    {
+        liveTime += Time.deltaTime;
+        if (liveTime > 4F) Destroy(gameObject);
+    }
+
+    public IEnumerator LifeSpan(float time)
     {
         yield return new WaitForSeconds(time);
 

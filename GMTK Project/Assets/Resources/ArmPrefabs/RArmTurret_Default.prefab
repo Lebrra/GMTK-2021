@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1876621923820964093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7525916745704713044}
+  - component: {fileID: 3922542980316501346}
+  m_Layer: 0
+  m_Name: ShootRef
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7525916745704713044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876621923820964093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.061, y: -1.114, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7567824897238531209}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3922542980316501346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876621923820964093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf41293844c05d4f938418edaa3d3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4925690521191816296
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +136,7 @@ GameObject:
   - component: {fileID: 5983810473338731828}
   - component: {fileID: 7252229684070642321}
   - component: {fileID: 4846417666392589915}
+  - component: {fileID: 8939457886094283333}
   m_Layer: 0
   m_Name: RArmTurret_Default
   m_TagString: Untagged
@@ -164,6 +208,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8939457886094283333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359385316975814542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc1ab57159ed1b40a5159767e36111b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLeg: 0
+  isTurret: 0
+  myLimbPrefabLeft: {fileID: 7170118535711277822, guid: 1f826dea8d84e7645985de0e9fd97ca4, type: 3}
+  myLimbPrefabRight: {fileID: 6359385316975814542}
+  myTurretPrefab: Turret_Default
+  health: 50
+  maxHealth: 50
+  isBroken: 0
+  isDead: 0
+  shootPosition: {fileID: 7525916745704713044}
+  rotatePoint: {fileID: 0}
+  damage: 1
+  range: 4.64
+  projectileRange: 5.01
+  cooldown: 1.3
+  spreadCount: 1
+  canPierce: 0
+  isAOE: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  TargetList: []
+  activeTarget: {fileID: 0}
+  muzzleFlash: {fileID: 421713980719050125, guid: d09174af59c5b4c4da9d4e79dbd6e09b, type: 3}
+  hitFlash: {fileID: 5477419811253790477, guid: f55cc17ee06012e40915567ba597369e, type: 3}
 --- !u!1 &7316385781011596268
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +273,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.07733401, y: 0.010129877, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7525916745704713044}
   m_Father: {fileID: 7363094119348731245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

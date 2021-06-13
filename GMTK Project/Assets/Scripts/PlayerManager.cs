@@ -129,8 +129,8 @@ public class PlayerManager : MonoBehaviour
         anim.gameObject.SetActive(false);
 
         GameObject newLimb = null;
-        if (index % 2 == 0) newLimb = Instantiate(attack.myLimbPrefabLeft, limbObjects[index].transform);
-        else newLimb = Instantiate(attack.myLimbPrefabRight, limbObjects[index].transform);
+        if (index % 2 == 0) newLimb = Instantiate(Resources.Load("ArmPrefabs/" + attack.myLimbPrefabLeft.name) as GameObject, limbObjects[index].transform);
+        else newLimb = Instantiate(Resources.Load("ArmPrefabs/" + attack.myLimbPrefabRight.name) as GameObject, limbObjects[index].transform);
         newLimb.transform.SetSiblingIndex(0);
         newLimb.name = IntToName(index);
 
