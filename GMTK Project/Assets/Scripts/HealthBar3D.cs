@@ -10,6 +10,7 @@ public class HealthBar3D : MonoBehaviour
     {
         if(!gameObject.activeInHierarchy) gameObject.SetActive(true);
 
+        if (percentage >= 1) percentage = 1.005F;
         bar.localScale = new Vector3(percentage, bar.localScale.y, bar.localScale.z);
         //bar.localPosition = new Vector3(-bar.localScale.x / 2F, bar.localPosition.y, bar.localPosition.z);
     }

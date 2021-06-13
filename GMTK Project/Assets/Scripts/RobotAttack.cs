@@ -23,6 +23,9 @@ public class RobotAttack : MonoBehaviour, IHealth
     public bool isBroken = false;
     public bool isDead = false;
 
+    public float healTimer = 3F;
+    public int healAmount = 10;
+
     [Header("Weapon Properties")]
     [Tooltip("Defaults to its own position")]
     public Transform shootPosition;
@@ -99,7 +102,16 @@ public class RobotAttack : MonoBehaviour, IHealth
         TargetList = new List<Collider>();
         StartCoroutine(FindEnemies());
         StartCoroutine(ResetAttack(0.5F));
+        StartCoroutine(Heal());
         //}
+    }
+
+    IEnumerator Heal()
+    {
+        yield return new WaitForSeconds(healTimer);
+
+        GainHealth(healAmount);
+        if (health < maxHealth && !isDead) StartCoroutine(Heal());
     }
 
     public virtual void Attack()
@@ -150,6 +162,7 @@ public class RobotAttack : MonoBehaviour, IHealth
 
         if (/*isTurret && */rotatePoint != transform && angleOffset == 0)
         {
+            //rotatePoint.rotation = Quaternion.Slerp(rotatePoint.rotation, Quaternion.LookRotation(direction), 0.15F);
             rotatePoint.rotation = Quaternion.LookRotation(direction);
         }
         DoVisual(shootPosition.position, direction, projectileRange, cooldown / 2F);
@@ -259,8 +272,11 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     public void GainHealth(int amount)
     {
+        if (isDead) return;
+
         health += amount;
         if (health > maxHealth) health = maxHealth;
+        if (isTurret) barRef?.SetHealth((float)health / (float)maxHealth);
     }
 
     public int GetHealth()
