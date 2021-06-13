@@ -210,6 +210,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   thingsInSight: []
+  slimeParticle: {fileID: 1705205519924004847, guid: e5e50ddaef7dfaf4abdb305e412372ac, type: 3}
 --- !u!114 &4451420230748384713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  isDead: 0
 --- !u!82 &6691229028323101461
 AudioSource:
   m_ObjectHideFlags: 0

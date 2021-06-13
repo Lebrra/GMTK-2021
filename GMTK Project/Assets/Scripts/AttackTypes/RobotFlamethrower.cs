@@ -43,6 +43,6 @@ public class RobotFlamethrower : RobotAttack
     protected override void PlaySound()
     {
         if (isTurret) GetComponent<AudioSource>().Play();
-        else AudioManager.inst.FlameTurretSound();
+        else AudioManager.inst?.FlameTurretSound();
     }
 }

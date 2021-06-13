@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
 {
     [Header("My health")]
     public int health = 100;
+    public bool isDead = false;
 
     public void GainHealth(int amount)
     {
@@ -19,12 +20,21 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     public void TakeDamage(int amount)
     {
-        health -= amount;
-
-        if (health == 0)
+        if (!isDead)
         {
-            //Add enemy death sfx here
-            Debug.Log("Dead");
+            health -= amount;
+
+            if (health <= 0)
+            {
+                //Add enemy death sfx here
+                //Debug.Log("Dead");
+                //VesselManager.inst.goonsRemaining--;
+                isDead = true;
+                //Destroy(this.gameObject);
+            }
+        }
+        if (isDead == true)
+        {
             VesselManager.inst.goonsRemaining--;
             Destroy(this.gameObject);
         }

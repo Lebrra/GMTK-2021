@@ -26,7 +26,7 @@ public class HubReference : MonoBehaviour, IHealth
 
     private void Start()
     {
-        //gameOverPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
 
     private void Update()
@@ -34,7 +34,8 @@ public class HubReference : MonoBehaviour, IHealth
         if (!gameState)
         {
             Time.timeScale = 0;
-            //gameOverPanel.SetActive(true);
+            gameOverPanel.SetActive(true);
+            FindObjectOfType<PlayerManager>().active = false;
         }
     }
 
@@ -56,6 +57,9 @@ public class HubReference : MonoBehaviour, IHealth
         if(health <= 0)
         {
             gameState = false;
+            Time.timeScale = 0;
+            gameOverPanel.SetActive(true);
+            FindObjectOfType<PlayerManager>().active = false;
         }
     }
 }

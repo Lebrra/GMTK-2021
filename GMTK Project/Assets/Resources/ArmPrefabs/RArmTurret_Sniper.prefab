@@ -398,12 +398,12 @@ MonoBehaviour:
   isDead: 0
   healTimer: 3
   healAmount: 10
-  shootPosition: {fileID: 5603613980060749581}
-  rotatePoint: {fileID: 5603613980060749581}
-  damage: 1
-  range: 3.8
-  projectileRange: 4
-  cooldown: 2
+  shootPosition: {fileID: 1650068435265164655, guid: 88ac66f6649bb554689d23fdc1936254, type: 3}
+  rotatePoint: {fileID: 1650068435265164655, guid: 88ac66f6649bb554689d23fdc1936254, type: 3}
+  damage: 100
+  range: 15
+  projectileRange: 20
+  cooldown: 5
   spreadCount: 1
   canPierce: 1
   isAOE: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   activeTarget: {fileID: 0}
   muzzleFlash: {fileID: 0}
   hitFlash: {fileID: 638065168708834191, guid: b98822f0dc1a9d544b1e275e92f0e292, type: 3}
-  laser: {fileID: 1397832587581994899}
+  laser: {fileID: 7632406424965170851, guid: 88ac66f6649bb554689d23fdc1936254, type: 3}
 --- !u!1001 &2061867798107678325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,11 +488,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2631be368599e14287348b17d44d6bd, type: 3}
---- !u!1 &1397832587581994899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1151549878989246950, guid: e2631be368599e14287348b17d44d6bd, type: 3}
-  m_PrefabInstance: {fileID: 2061867798107678325}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3679595034872696173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3426594894350035736, guid: e2631be368599e14287348b17d44d6bd, type: 3}
