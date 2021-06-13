@@ -31304,11 +31304,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 71bb44319f15e0741846c4fad009f013, type: 3}
   m_PrefabInstance: {fileID: 1455181383}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &592491003 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8402464703992127478, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
-  m_PrefabInstance: {fileID: 1862672318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &601737761 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6441905853637740927, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
@@ -32035,8 +32030,9 @@ GameObject:
   - component: {fileID: 828087151}
   - component: {fileID: 828087150}
   - component: {fileID: 828087149}
+  - component: {fileID: 828087152}
   - component: {fileID: 828087148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32121,6 +32117,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &828087152
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828087147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &830990328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 71bb44319f15e0741846c4fad009f013, type: 3}
@@ -32738,48 +32747,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4e61a8bb1ff45a249af68d02f0d6f345, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71bb44319f15e0741846c4fad009f013, type: 3}
---- !u!1 &956282491 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1128726369215368538, guid: 70c12c25c9d4dee418eff7829999d4ec, type: 3}
-  m_PrefabInstance: {fileID: 1862672318}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &956282493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956282491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dc1ab57159ed1b40a5159767e36111b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLeg: 0
-  isTurret: 0
-  myLimbPrefabLeft: {fileID: 4013277151911588731, guid: 6a4faa60173c6f04694ebff03403e05f, type: 3}
-  myLimbPrefabRight: {fileID: 3627497717003680133, guid: 325005c92465cac40a677bf34e1adac2, type: 3}
-  myTurretPrefab: {fileID: 3297860511207844137, guid: bd2fef18ef1166f469cdc531f2a8ed43, type: 3}
-  health: 50
-  maxHealth: 50
-  isBroken: 0
-  isDead: 0
-  shootPosition: {fileID: 592491003}
-  rotatePoint: {fileID: 0}
-  damage: 5
-  range: 1.67
-  projectileRange: 1.78
-  cooldown: 1
-  spreadCount: 1
-  canPierce: 0
-  isAOE: 0
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  TargetList: []
-  activeTarget: {fileID: 0}
-  muzzleFlash: {fileID: 421713980719050125, guid: d09174af59c5b4c4da9d4e79dbd6e09b, type: 3}
-  hitFlash: {fileID: 5477419811253790477, guid: f55cc17ee06012e40915567ba597369e, type: 3}
 --- !u!1001 &964831680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35904,7 +35871,7 @@ MonoBehaviour:
   isTurret: 0
   myLimbPrefabLeft: {fileID: 0}
   myLimbPrefabRight: {fileID: 0}
-  myTurretPrefab: {fileID: 5097125182811065488, guid: 1af08ae1dd772db4bac09bf5ce1cf988, type: 3}
+  myTurretPrefab: 
   health: 50
   maxHealth: 50
   isBroken: 0
@@ -36658,7 +36625,7 @@ MonoBehaviour:
   isTurret: 0
   myLimbPrefabLeft: {fileID: 4013277151911588731, guid: 6a4faa60173c6f04694ebff03403e05f, type: 3}
   myLimbPrefabRight: {fileID: 3627497717003680133, guid: 325005c92465cac40a677bf34e1adac2, type: 3}
-  myTurretPrefab: {fileID: 3297860511207844137, guid: bd2fef18ef1166f469cdc531f2a8ed43, type: 3}
+  myTurretPrefab: 
   health: 50
   maxHealth: 50
   isBroken: 0
@@ -37483,7 +37450,7 @@ MonoBehaviour:
   active: 1
   limbs:
   - {fileID: 1762630144}
-  - {fileID: 956282493}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   limbObjects:
@@ -37738,7 +37705,7 @@ MonoBehaviour:
   isTurret: 0
   myLimbPrefabLeft: {fileID: 0}
   myLimbPrefabRight: {fileID: 0}
-  myTurretPrefab: {fileID: 5097125182811065488, guid: 1af08ae1dd772db4bac09bf5ce1cf988, type: 3}
+  myTurretPrefab: 
   health: 50
   maxHealth: 50
   isBroken: 0

@@ -22,6 +22,9 @@ public class EnemyHealth : MonoBehaviour, IHealth
         health -= amount;
 
         if (health <= 0)
+        {
+            //Add enemy death sfx here
             Destroy(this.gameObject);
+        }
     }
 }
