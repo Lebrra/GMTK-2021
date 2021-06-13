@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     [Tooltip("The layers I can see.")]
     public LayerMask sightLayer;
     public List<Transform> thingsInSight = new List<Transform>();
+    Animator anim;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
         myObstacle = GetComponent<NavMeshObstacle>();
         destination = agent.destination;
         agent.speed = moveSpeed;
+        anim = GetComponentInChildren<Animator>();
         //thingsInSight.Add(HubReference.reference.transform);
         StartCoroutine("FindTargets", 0.2f);
         //moving = true;
@@ -79,13 +81,27 @@ public class EnemyMovement : MonoBehaviour
 
                 if (target)
                 {
-                    destination = target.position;
-                    agent.destination = destination;
-
-                    if (Vector3.Distance(transform.position, destination) <= attackRange)
+                    if (target == HubReference.reference.transform)
                     {
-                        print("Yuh");
-                        targetMet = true;
+                        print("PLS");
+                        destination = target.position;
+                        agent.destination = destination;
+
+                        if (Vector3.Distance(transform.position, destination) <= attackRange + 4)
+                        {
+                            print("At the hub");
+                            targetMet = true;
+                        }
+                    }
+                    else
+                    {
+                        destination = target.position;
+                        agent.destination = destination;
+
+                        if (Vector3.Distance(transform.position, destination) <= attackRange)
+                        {
+                            targetMet = true;
+                        }
                     }
                 }
             }
@@ -155,6 +171,7 @@ public class EnemyMovement : MonoBehaviour
         if (target.GetComponent<RobotAttack>() && !target.GetComponent<RobotAttack>().isDead)
         {
             //Add enemy attack sfx here
+            anim.SetTrigger("Attack");
             target.GetComponent<RobotAttack>().TakeDamage(damage);
         }
 
@@ -162,6 +179,7 @@ public class EnemyMovement : MonoBehaviour
         else if (target.GetComponent<HubReference>())
         {
             //Add enemy attack sfx here
+            anim.SetTrigger("Attack");
             target.GetComponent<HubReference>().TakeDamage(damage);
         }
 

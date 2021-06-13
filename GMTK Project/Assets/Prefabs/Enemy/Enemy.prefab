@@ -202,8 +202,8 @@ MonoBehaviour:
   target: {fileID: 0}
   canMove: 0
   moveSpeed: 2
-  attackRange: 1.2
-  damage: 10
+  attackRange: 2
+  damage: 2
   attackCooldown: 1
   sightLayer:
     serializedVersion: 2
