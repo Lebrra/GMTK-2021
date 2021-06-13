@@ -97,7 +97,7 @@ public class VesselManager : MonoBehaviour
         roundNum++;
         vesselCount = 0;
 
-        Invoke("IShouldChangeThis", 5f);
+        Invoke("IShouldChangeThis", 10f);
         Invoke("StartRound", timeBtwnRounds);
     }
 
