@@ -16,10 +16,14 @@ public class ArmConstructor : MonoBehaviour
     public Material defaultMat;
     public Material nearbyMat;
 
+    [Header("UI")]
+    public UIRotator ui;
+
     void Start()
     {
         notificationObject.gameObject.SetActive(false);
         StartCoroutine(ConstructArm());
+        ui?.ShowUI(false);
     }
 
     public RobotAttack GetArm()
@@ -29,6 +33,7 @@ public class ArmConstructor : MonoBehaviour
         {
             hasArmReady = false;
             notificationObject.gameObject.SetActive(false);
+            ui?.ShowUI(false);
 
             StartCoroutine(ConstructArm());
 
@@ -42,6 +47,7 @@ public class ArmConstructor : MonoBehaviour
 
         hasArmReady = true;
         notificationObject.gameObject.SetActive(true);
+        ui?.ShowUI(true);
         SetNearby(nearby);
     }
 

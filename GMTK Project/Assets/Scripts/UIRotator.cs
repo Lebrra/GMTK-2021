@@ -12,7 +12,7 @@ public class UIRotator : MonoBehaviour
     bool shown = false;
     public float minDistance = 5F;
 
-    private void Start()
+    private void Awake()
     {
         spinningRect = transform.GetChild(0).GetComponent<RectTransform>();
     }
@@ -57,6 +57,6 @@ public class UIRotator : MonoBehaviour
     public void ShowUI(bool show)
     {
         shown = show;
-
+        spinningRect?.gameObject.SetActive(false);
     }
 }
