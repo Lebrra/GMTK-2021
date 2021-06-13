@@ -147,4 +147,9 @@ public class AudioManager : MonoBehaviour
         walkSfxSource.clip = sfxList[10];
         walkSfxSource.Play();
     }
+
+    public void ChillVibes()
+    {
+        StartCoroutine(FadeSongIn(1f, .4f, 3));
+    }
 }

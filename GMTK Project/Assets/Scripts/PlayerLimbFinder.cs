@@ -65,6 +65,7 @@ public class PlayerLimbFinder : MonoBehaviour
         if (!turretChoice && hub)
         {
             if (hub.hasArmReady) return hub.GetArm();
+            else AudioManager.inst?.LimbNotReadySound();
         }
 
         //if (nearbyLimbs.Contains(turretChoice)) nearbyLimbs.Remove(turretChoice);

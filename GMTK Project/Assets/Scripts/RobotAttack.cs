@@ -278,6 +278,12 @@ public class RobotAttack : MonoBehaviour, IHealth
         if (isDead) return;
 
         AudioManager.inst?.FixTurretSound();
+        if (smoke)
+        {
+            GameObject poof = Instantiate(smoke, transform);
+            poof.GetComponent<ParticleTimer>().LifeSpan(0.6F);
+        }
+
         health += amount;
         if (health > maxHealth) health = maxHealth;
         if (isTurret) barRef?.SetHealth((float)health / (float)maxHealth);
@@ -320,7 +326,7 @@ public class RobotAttack : MonoBehaviour, IHealth
         if (hitFlash)
         {
             GameObject effect = Instantiate(hitFlash, hitPoint, rotatePoint.rotation);
-            StartCoroutine(effect.GetComponent<ParticleTimer>().LifeSpan(0.6F));
+            effect.GetComponent<ParticleTimer>().LifeSpan(0.6F);
         }
     }
 
@@ -329,13 +335,13 @@ public class RobotAttack : MonoBehaviour, IHealth
         if (muzzleFlash)
         {
             GameObject effect = Instantiate(muzzleFlash, shotPos, rotatePoint.rotation);
-            StartCoroutine(effect.GetComponent<ParticleTimer>().LifeSpan(0.6F));
+            effect.GetComponent<ParticleTimer>().LifeSpan(0.6F);
         }
     }
 
     protected virtual void PlaySound()
     {
         if (isTurret) GetComponent<AudioSource>().Play();
-        else AudioManager.inst.BasicTurretSound();
+        else AudioManager.inst?.BasicTurretSound();
     }
 }
