@@ -87,6 +87,10 @@ public class EnemyMovement : MonoBehaviour
                         print("Yuh");
                         targetMet = true;
                     }
+                    else
+                    {
+                        targetMet = false;
+                    }
                 }
             }
         }
