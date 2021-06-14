@@ -1758,6 +1758,7 @@ GameObject:
   - component: {fileID: 7307983080227959918}
   - component: {fileID: 5964156175330212811}
   - component: {fileID: 8439753642240806657}
+  - component: {fileID: 1011090565731389541}
   m_Layer: 0
   m_Name: Turret_Flamethrower
   m_TagString: Untagged
@@ -1833,6 +1834,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1011090565731389541
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935618834298121940}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 950fe4313abdb4a43a7ade242f0bb97b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8385506466182460261
 GameObject:
   m_ObjectHideFlags: 0
