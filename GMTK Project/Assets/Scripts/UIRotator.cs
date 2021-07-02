@@ -12,6 +12,8 @@ public class UIRotator : MonoBehaviour
     bool shown = false;
     public float minDistance = 5F;
 
+    public bool isFromPool = false;
+
     private void Awake()
     {
         spinningRect = transform.GetChild(0).GetComponent<RectTransform>();

@@ -1152,8 +1152,8 @@ MonoBehaviour:
   shootPosition: {fileID: 5652060449029168233}
   rotatePoint: {fileID: 5417196317442346101}
   damage: 100
-  range: 15
-  projectileRange: 20
+  range: 9
+  projectileRange: 10
   cooldown: 5
   spreadCount: 1
   canPierce: 1
@@ -1165,6 +1165,7 @@ MonoBehaviour:
   activeTarget: {fileID: 0}
   muzzleFlash: {fileID: 0}
   hitFlash: {fileID: 638065168708834191, guid: b98822f0dc1a9d544b1e275e92f0e292, type: 3}
+  projectile: {fileID: 0}
   laser: {fileID: 1151549880861213559}
 --- !u!82 &2775849509135699498
 AudioSource:
@@ -2314,7 +2315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2039978896319366385, guid: e2631be368599e14287348b17d44d6bd, type: 3}
       propertyPath: m_Positions.Array.data[0].z
-      value: -4
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2039978896319366385, guid: e2631be368599e14287348b17d44d6bd, type: 3}
       propertyPath: m_Positions.Array.data[1].y

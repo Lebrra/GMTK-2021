@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a247b63ce8214314ab8549fe32cc8085, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,7 +90,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3893291656121270277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -164,3 +164,4 @@ MonoBehaviour:
   targetLocation: {fileID: 0}
   shown: 0
   minDistance: 22
+  isFromPool: 0

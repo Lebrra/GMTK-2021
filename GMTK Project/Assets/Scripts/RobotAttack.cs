@@ -55,6 +55,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     [Header("Effects")]
     public GameObject muzzleFlash;
     public GameObject hitFlash;
+    public GameObject projectile;
 
     protected void Update()
     {
@@ -72,7 +73,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     public void SetTurret(int currentHealth, string prefabRef)
     {
         attacking = true;
-        StartCoroutine(ResetAttack(0.5F));
+        StartCoroutine(ResetAttack(cooldown / 1.5F));
 
         health = currentHealth;
         isTurret = true;
@@ -103,7 +104,7 @@ public class RobotAttack : MonoBehaviour, IHealth
         //{
         TargetList = new List<Collider>();
         StartCoroutine(FindEnemies());
-        StartCoroutine(ResetAttack(0.5F));
+        StartCoroutine(ResetAttack(cooldown / 1.5F));
         StartCoroutine(Heal());
         //}
     }
@@ -112,8 +113,7 @@ public class RobotAttack : MonoBehaviour, IHealth
     {
         yield return new WaitForSeconds(healTimer);
 
-        GainHealth(healAmount);
-        if (health < maxHealth && !isDead) StartCoroutine(Heal());
+        GainHealth(maxHealth);
     }
 
     public virtual void Attack()
@@ -168,7 +168,14 @@ public class RobotAttack : MonoBehaviour, IHealth
             //rotatePoint.rotation = Quaternion.Slerp(rotatePoint.rotation, Quaternion.LookRotation(direction), 0.15F);
             rotatePoint.rotation = Quaternion.LookRotation(direction);
         }
-        DoVisual(shootPosition.position, direction, projectileRange, cooldown / 2F);
+        DoVisual(shootPosition.position, direction, projectileRange, 3F);
+
+        if (projectile)
+        {
+            projectile = Instantiate(projectile, shootPosition.position, Quaternion.LookRotation(direction.normalized));
+            projectile.GetComponent<BulletProjectile>().targetPos = activeTarget.transform.position;
+            projectile.SetActive(true);
+        }
 
         //Debug.Log("shooting towards " + direction.normalized.ToString());
         Debug.DrawRay(shootPosition.position, direction * projectileRange, Color.red, 1F);
@@ -315,6 +322,15 @@ public class RobotAttack : MonoBehaviour, IHealth
 
     protected virtual void DoVisual(Vector3 shotPos, Vector3 direction, float distance, float duration)
     {
+        /*if (projectile)
+        {
+            // set the projectile to the prefab, otherwise it sets it to itself (shouldn't matter)
+            projectile = Instantiate(projectile, shootPosition.position, Quaternion.LookRotation(direction));
+            //projectile = Instantiate(projectile, shootPosition.position, Quaternion.Euler(direction.normalized));
+            projectile.GetComponent<BulletProjectile>().targetPos = duration;
+            projectile.SetActive(true);
+        }*/
+
         // on default do nothing for now
         //Debug.Log("do the visual");
     }

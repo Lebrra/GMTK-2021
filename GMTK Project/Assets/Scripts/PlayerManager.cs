@@ -206,7 +206,7 @@ public class PlayerManager : MonoBehaviour
         }
         else Debug.LogWarning("cannot detatch limb unfound");
 
-        Debug.Log("having this debug removes an error?");
+        //Debug.Log("having this debug removes an error?");
     }
 
     void IncrementActiveLimb()

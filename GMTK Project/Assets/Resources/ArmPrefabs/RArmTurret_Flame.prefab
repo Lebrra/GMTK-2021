@@ -275,11 +275,11 @@ MonoBehaviour:
   healAmount: 8
   shootPosition: {fileID: 2337540270042757997, guid: 75b5b325ac5ef904fb068b2bdc49471f, type: 3}
   rotatePoint: {fileID: 2941000582301482914, guid: 75b5b325ac5ef904fb068b2bdc49471f, type: 3}
-  damage: 3
+  damage: 2
   range: 6
   projectileRange: 7
   cooldown: 0.5
-  spreadCount: 7
+  spreadCount: 5
   canPierce: 1
   isAOE: 0
   targetLayer:
@@ -289,6 +289,7 @@ MonoBehaviour:
   activeTarget: {fileID: 0}
   muzzleFlash: {fileID: 0}
   hitFlash: {fileID: 0}
+  projectile: {fileID: 0}
   flameThrower: {fileID: 4892032826066362375, guid: 75b5b325ac5ef904fb068b2bdc49471f, type: 3}
 --- !u!1 &1807564834681098478
 GameObject:
@@ -507,6 +508,18 @@ PrefabInstance:
     - target: {fileID: 2301997634968159427, guid: 7c896b12747b74a4b8f90d7e0d61ec93, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301997634968159427, guid: 7c896b12747b74a4b8f90d7e0d61ec93, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301997634968159427, guid: 7c896b12747b74a4b8f90d7e0d61ec93, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301997634968159427, guid: 7c896b12747b74a4b8f90d7e0d61ec93, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 2301997634968159427, guid: 7c896b12747b74a4b8f90d7e0d61ec93, type: 3}
       propertyPath: m_LocalPosition.x

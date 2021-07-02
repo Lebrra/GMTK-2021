@@ -248,6 +248,7 @@ MonoBehaviour:
   activeTarget: {fileID: 0}
   muzzleFlash: {fileID: 421713980719050125, guid: d09174af59c5b4c4da9d4e79dbd6e09b, type: 3}
   hitFlash: {fileID: 5477419811253790477, guid: f55cc17ee06012e40915567ba597369e, type: 3}
+  projectile: {fileID: 2225136943462301804, guid: 19dd050807b85b04f96deb929f402f3c, type: 3}
 --- !u!1 &9195192650587437336
 GameObject:
   m_ObjectHideFlags: 0

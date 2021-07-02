@@ -401,8 +401,8 @@ MonoBehaviour:
   shootPosition: {fileID: 1650068435265164655}
   rotatePoint: {fileID: 1650068435265164655}
   damage: 100
-  range: 15
-  projectileRange: 20
+  range: 9
+  projectileRange: 10
   cooldown: 5
   spreadCount: 1
   canPierce: 1
@@ -414,6 +414,7 @@ MonoBehaviour:
   activeTarget: {fileID: 0}
   muzzleFlash: {fileID: 0}
   hitFlash: {fileID: 638065168708834191, guid: b98822f0dc1a9d544b1e275e92f0e292, type: 3}
+  projectile: {fileID: 0}
   laser: {fileID: 7632406424965170851}
 --- !u!1001 &7354626367779575621
 PrefabInstance:
@@ -426,25 +427,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserLineRenderer
       objectReference: {fileID: 0}
-    - target: {fileID: 1151549878989246950, guid: e2631be368599e14287348b17d44d6bd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3426594894350035736, guid: e2631be368599e14287348b17d44d6bd, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426594894350035736, guid: e2631be368599e14287348b17d44d6bd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426594894350035736, guid: e2631be368599e14287348b17d44d6bd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426594894350035736, guid: e2631be368599e14287348b17d44d6bd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3426594894350035736, guid: e2631be368599e14287348b17d44d6bd, type: 3}
       propertyPath: m_LocalPosition.x

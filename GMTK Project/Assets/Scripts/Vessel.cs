@@ -20,11 +20,14 @@ public class Vessel : MonoBehaviour
 
     AudioSource audioSource;
 
+    GameObject myIndicator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         canSpawn = true;
+        myIndicator = IndicatorPooler.instance?.Take(transform);
         Invoke("StartSpawning", holdTime);
     }
 
@@ -50,6 +53,7 @@ public class Vessel : MonoBehaviour
         if (goonCount == maxGoonCount)
         {
             canSpawn = false;
+            IndicatorPooler.instance?.Return(myIndicator);
             Destroy(this.gameObject);
         }
     }
