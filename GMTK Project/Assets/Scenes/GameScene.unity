@@ -43086,7 +43086,7 @@ MonoBehaviour:
   timeBtwnReinforcments: 10
   timeBtwnRounds: 20
   gameStartTime: 5
-  fallBackTime: 100
+  fallBackTime: 200
   maxGoonsForRound: 0
   goonsKilled: 0
 --- !u!4 &1768380037

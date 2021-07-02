@@ -17,7 +17,7 @@ public class VesselManager : MonoBehaviour
     public float timeBtwnRounds = 20f;
     public float gameStartTime = 30f;
 
-    public float fallBackTime = 100;
+    public float fallBackTime = 200;
     float fallBackTimeSetter = 200;
 
     int roundNum = 1;

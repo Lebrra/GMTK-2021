@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [Header("My health")]
     public int health = 100;
     public bool isDead = false;
-    public bool addedToDeath = false;
+    bool addedToDeath = false;
 
     public delegate void deathEvent();
 
