@@ -381,6 +381,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 739277827344210401, guid: a6ef702a3ec4160488fed42bdda7f1b5, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 750238716926367587, guid: a6ef702a3ec4160488fed42bdda7f1b5, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -43082,7 +43086,9 @@ MonoBehaviour:
   timeBtwnReinforcments: 10
   timeBtwnRounds: 20
   gameStartTime: 5
-  goonsRemaining: 0
+  fallBackTime: 100
+  maxGoonsForRound: 0
+  goonsKilled: 0
 --- !u!4 &1768380037
 Transform:
   m_ObjectHideFlags: 0
@@ -43302,6 +43308,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a247b63ce8214314ab8549fe32cc8085, type: 3}
+    - target: {fileID: 3893291655643598251, guid: 0a9dd18ebd1371849b98fb778b28b020, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -28.78003
+      objectReference: {fileID: 0}
     - target: {fileID: 3893291656121270276, guid: 0a9dd18ebd1371849b98fb778b28b020, type: 3}
       propertyPath: m_IsActive
       value: 0

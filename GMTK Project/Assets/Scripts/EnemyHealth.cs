@@ -7,6 +7,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
     [Header("My health")]
     public int health = 100;
     public bool isDead = false;
+    public bool addedToDeath = false;
+
+    public delegate void deathEvent();
+
+    public static event deathEvent EnemyDeath;
 
     public void GainHealth(int amount)
     {
@@ -35,8 +40,14 @@ public class EnemyHealth : MonoBehaviour, IHealth
         }
         if (isDead == true)
         {
-            VesselManager.inst.goonsRemaining--;
-            Destroy(this.gameObject);
+            //VesselManager.inst.goonsRemaining--;
+            if (EnemyDeath != null && addedToDeath == false)
+            {
+                addedToDeath = true;
+                EnemyDeath();
+                Destroy(this.gameObject);
+            }
+            //Destroy(this.gameObject);
         }
     }
 }

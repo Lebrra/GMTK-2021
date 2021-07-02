@@ -17,15 +17,15 @@ public class VesselManager : MonoBehaviour
     public float timeBtwnRounds = 20f;
     public float gameStartTime = 30f;
 
-    //AHHHHHHHH
-    //float fallBackTime = 100;
-    //float fallBackTimeSetter = 100;
+    public float fallBackTime = 100;
+    float fallBackTimeSetter = 200;
 
     int roundNum = 1;
     int vesselCount;
     int maxVessels = 3;
 
-    public int goonsRemaining = 0;
+    public int maxGoonsForRound = 0;
+    public int goonsKilled = 0;
 
     public static VesselManager inst;
 
@@ -41,8 +41,21 @@ public class VesselManager : MonoBehaviour
 
     void Start()
     {
+        EnemyHealth.EnemyDeath += CountEnemyDeath;
         //fallBackTime = fallBackTimeSetter;
         Invoke("StartTheGame", gameStartTime);
+    }
+
+    void CountEnemyDeath()
+    {
+        goonsKilled++;
+
+        if (goonsKilled == maxGoonsForRound && vesselCount == maxVessels)
+        {
+            Debug.Log("Round Over.");
+            //fallBackTime = fallBackTimeSetter;
+            AllGoonsDead();
+        }
     }
 
     public void StartTheGame()
@@ -59,12 +72,26 @@ public class VesselManager : MonoBehaviour
         {
             StartCoroutine("StartRound");
         }
-        */
+        
         if (goonsRemaining == 0 && vesselCount == maxVessels)
         {
             Debug.Log("Round Over.");
             //fallBackTime = fallBackTimeSetter;
             AllGoonsDead();
+        }
+        */
+
+        if(vesselCount == maxVessels)
+        {
+            fallBackTime -= Time.deltaTime;
+            if(fallBackTime <= 0)
+            {
+                AllGoonsDead();
+            }
+        }
+        else
+        {
+            fallBackTime = fallBackTimeSetter;
         }
 
         switch (roundNum)
@@ -133,6 +160,8 @@ public class VesselManager : MonoBehaviour
     {
         AudioManager.inst.FadeOut();
         roundState = false;
+        maxGoonsForRound = 0;
+        goonsKilled = 0;
         vesselCount = 0;
         roundNum++;
         AudioManager.inst.RoundOverSound();
